@@ -21,100 +21,81 @@
                             700: '#4338ca',
                             800: '#3730a3',
                             900: '#312e81',
-                        },
-                        cf: {
-                            orange: '#f38020',
-                            border: '#e0e0e0',
-                            darkborder: '#333333',
-                            bg: '#fafafa',
-                            darkbg: '#1b1b1b'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace']
-                    },
-                    boxShadow: {
-                        'glow': '0 0 25px -5px rgba(99, 102, 241, 0.45)',
-                        'card': '0 10px 30px -10px rgba(0,0,0,0.06)'
+                        sans: ['"Be Vietnam Pro"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <!-- Google Fonts: Be Vietnam Pro & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome 6 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Tối ưu Safe Area cho iOS Safari & Android Navigation Bar */
         :root {
             --sat: env(safe-area-inset-top, 0px);
             --sab: env(safe-area-inset-bottom, 0px);
         }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
         body {
             padding-top: var(--sat);
-            padding-bottom: var(--sab);
+            padding-bottom: calc(var(--sab) + 68px);
             -webkit-tap-highlight-color: transparent;
             user-select: none;
+        }
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: var(--sab);
+            }
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.03);
-        }
         ::-webkit-scrollbar-thumb {
             background: rgba(99, 102, 241, 0.4);
             border-radius: 9999px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(79, 70, 229, 0.8);
-        }
-        /* Cloudflare Checkbox Animations */
-        @keyframes cf-spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .cf-spinner {
-            border: 2.5px solid rgba(0, 0, 0, 0.12);
-            border-left-color: #0051c3;
-            border-radius: 50%;
-            width: 26px;
-            height: 26px;
-            animation: cf-spin 0.85s linear infinite;
-        }
-        .dark .cf-spinner {
-            border: 2.5px solid rgba(255, 255, 255, 0.18);
-            border-left-color: #38bdf8;
-        }
-        @keyframes cf-pop {
-            0% { transform: scale(0.5); opacity: 0; }
-            70% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        .cf-check-pop {
-            animation: cf-pop 0.35s ease-out forwards;
-        }
-        /* Touch / Click Ripple */
+        /* Ripple effect */
         .touch-ripple {
             position: fixed;
             width: 24px;
             height: 24px;
             border-radius: 50%;
             pointer-events: none;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(168, 85, 247, 0) 75%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.7) 0%, rgba(236, 72, 153, 0) 75%);
             transform: translate(-50%, -50%) scale(1);
             animation: ripple-spread 0.5s ease-out forwards;
             z-index: 99999;
         }
         @keyframes ripple-spread {
             0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(3.2); opacity: 0; }
+        }
+        /* Bike Speed Smoke effect */
+        .bike-exhaust {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(239, 68, 68, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: exhaust-fade 0.4s ease-out forwards;
+        }
+        @keyframes exhaust-fade {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.9; }
+            100% { transform: scale(2.8) translate(-25px, -5px); opacity: 0; }
         }
         .fade-enter {
             animation: fadeEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -128,53 +109,51 @@
 <body class="h-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 antialiased selection:bg-indigo-500 selection:text-white">
 
     <!-- ========================================================================= -->
-    <!-- 1. CỔNG XÁC MINH DANH TÍNH WEBSITE (CLOUDFLARE TURNSTILE GATEWAY)         -->
+    <!-- 1. CỔNG XÁC MINH DANH TÍNH WEBSITE (CLOUDFLARE TURNSTILE KIỂU MỚI)       -->
     <!-- ========================================================================= -->
-    <div id="cf-verification-modal" class="fixed inset-0 z-50 bg-white dark:bg-[#121212] flex flex-col items-center justify-between p-5 sm:p-8 transition-all duration-300">
+    <div id="cf-verification-modal" class="fixed inset-0 z-50 bg-white dark:bg-[#111318] flex flex-col items-center justify-between p-4 sm:p-8 transition-all duration-300 overflow-y-auto">
         
-        <!-- Top Security Header Bar -->
-        <div class="w-full max-w-lg pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
-            <div class="flex items-center space-x-2 font-bold text-slate-700 dark:text-slate-300">
-                <i class="fa-solid fa-shield-halved text-amber-500 text-sm"></i>
-                <span>Hệ Thống Ôn Thi Tiếng Anh</span>
+        <!-- Header Gateway -->
+        <div class="w-full max-w-md pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center space-x-2 font-bold text-slate-800 dark:text-slate-200">
+                <i class="fa-solid fa-shield-cat text-indigo-500 text-base"></i>
+                <span class="tracking-tight">Hệ Thống Ôn Thi Tiếng Anh</span>
             </div>
-            <div class="flex items-center space-x-1.5 font-mono text-[11px] bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
-                <i class="fa-solid fa-location-dot text-indigo-500"></i>
-                <span id="cf-client-ip">IP: Đang phát hiện...</span>
+            <div class="flex items-center space-x-1.5 font-mono text-[11px] bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
+                <i class="fa-solid fa-network-wired text-emerald-500"></i>
+                <span id="cf-client-ip">IP: 14.161.42.109 (Ho Chi Minh City, VN)</span>
             </div>
         </div>
 
         <!-- Central Security Card -->
-        <div class="w-full max-w-md my-auto py-4 space-y-5">
-            <div class="text-left space-y-3">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 text-orange-600 dark:text-orange-400 text-xs font-semibold">
-                    <i class="fa-solid fa-id-badge"></i>
+        <div class="w-full max-w-md my-auto py-6 space-y-6">
+            <div class="text-left space-y-2.5">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/10 to-indigo-500/10 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-xs font-bold">
+                    <i class="fa-solid fa-id-card-clip"></i>
                     <span>Xác Minh Danh Tính Website</span>
                 </div>
-                <h1 class="text-lg sm:text-xl font-mono font-bold tracking-tight text-indigo-600 dark:text-indigo-400 break-all select-all">
-                    https://vocvachdomoitesst.github.io/tienganhcn/
+                <h1 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                    Cổng Kiểm Soát Thí Sinh 2026
                 </h1>
                 <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                     Xác minh bạn là sinh viên muốn ôn thi Tiếng Anh Chuyên Ngành CNTT (325 câu) trước khi tiếp tục truy cập đề cương.
                 </p>
             </div>
 
-            <!-- Turnstile Interactive Widget Box -->
-            <div class="bg-[#fafafa] dark:bg-[#1a1a1a] border border-[#d6d6d6] dark:border-[#333333] rounded-2xl p-4 sm:p-5 shadow-sm transition hover:border-slate-400 dark:hover:border-slate-600">
-                <div class="flex items-center justify-between">
-                    <!-- Checkbox Area -->
+            <!-- Neumorphic / Glassmorphism Turnstile Interactive Widget Box -->
+            <div class="relative overflow-hidden bg-gradient-to-br from-white to-slate-50 dark:from-[#181b22] dark:to-[#12141a] border-2 border-indigo-100 dark:border-slate-800 rounded-3xl p-5 shadow-xl hover:shadow-2xl transition duration-300">
+                <div class="flex items-center justify-between gap-4">
+                    <!-- Checkbox Button Area -->
                     <div class="flex items-center space-x-3.5 cursor-pointer flex-1" onclick="triggerTurnstileVerification()">
-                        <div id="cf-checkbox-container" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-[#252525] flex items-center justify-center transition-all duration-200 hover:border-indigo-500 shadow-inner shrink-0">
-                            <span id="cf-unchecked-box" class="block w-2 h-2 rounded-sm bg-transparent"></span>
-                            <div id="cf-loading-spinner" class="cf-spinner hidden"></div>
-                            <i id="cf-success-check" class="fa-solid fa-check text-emerald-600 dark:text-emerald-400 text-lg sm:text-xl hidden cf-check-pop"></i>
+                        <div id="cf-checkbox-container" class="relative w-8 h-8 rounded-xl border-2 border-indigo-400 dark:border-indigo-500 bg-white dark:bg-slate-800 flex items-center justify-center transition-all duration-300 shadow-md hover:scale-105 shrink-0 group">
+                            <span class="w-3 h-3 rounded-md bg-indigo-500/20 group-hover:bg-indigo-500/40 transition"></span>
                         </div>
-                        <div class="text-left select-none pr-2">
+                        <div class="text-left select-none pr-1">
                             <span id="cf-status-label" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 block">
                                 Xác minh bạn là người muốn ôn thi
                             </span>
                             <span id="cf-sub-label" class="text-[11px] text-slate-400 dark:text-slate-500 block mt-0.5">
-                                Nhấp vào ô vuông để bắt đầu ôn thi
+                                Chạm vào ô vuông để bắt đầu
                             </span>
                         </div>
                     </div>
@@ -182,7 +161,7 @@
                     <!-- Cloudflare Brand Signature -->
                     <div class="flex flex-col items-center justify-center pl-3 border-l border-slate-200 dark:border-slate-800 shrink-0">
                         <i class="fa-brands fa-cloudflare text-2xl text-[#f38020]"></i>
-                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tight mt-0.5">Turnstile</span>
+                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-tight mt-0.5">Turnstile</span>
                         <div class="text-[9px] text-slate-400/80 flex gap-1 mt-0.5">
                             <span class="hover:underline cursor-pointer">Privacy</span>
                             <span>•</span>
@@ -190,52 +169,71 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Animated loading bar -->
-                <div id="cf-progress-bar-bg" class="w-full bg-slate-200 dark:bg-slate-800 h-1 rounded-full mt-4 overflow-hidden hidden">
-                    <div id="cf-progress-bar-fill" class="bg-indigo-600 h-full w-0 transition-all duration-700 ease-out"></div>
-                </div>
-            </div>
-
-            <!-- Real-time Exam Countdown Widget (13h00 ngày 28/10/2026) -->
-            <div class="bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 dark:from-indigo-950/40 dark:via-purple-950/40 dark:to-pink-950/40 border border-indigo-200/80 dark:border-indigo-800/80 rounded-2xl p-4 text-center space-y-2">
-                <div class="flex items-center justify-center gap-1.5 text-xs font-bold text-indigo-700 dark:text-indigo-300">
-                    <i class="fa-solid fa-clock-rotate-left animate-spin text-indigo-600 dark:text-indigo-400" style="animation-duration: 6s;"></i>
-                    <span>ĐẾM NGƯỢC THỜI GIAN THI: 13:00 NGÀY 28/10/2026</span>
-                </div>
-                <div class="grid grid-cols-4 gap-2 font-mono" id="exam-countdown-grid">
-                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
-                        <span id="cd-days" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
-                        <span class="text-[9px] text-slate-400 uppercase font-bold">Ngày</span>
-                    </div>
-                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
-                        <span id="cd-hours" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
-                        <span class="text-[9px] text-slate-400 uppercase font-bold">Giờ</span>
-                    </div>
-                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
-                        <span id="cd-mins" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
-                        <span class="text-[9px] text-slate-400 uppercase font-bold">Phút</span>
-                    </div>
-                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
-                        <span id="cd-secs" class="text-lg sm:text-xl font-black text-rose-500 block">00</span>
-                        <span class="text-[9px] text-slate-400 uppercase font-bold">Giây</span>
-                    </div>
-                </div>
-                <p id="cd-target-label" class="text-[10px] text-slate-500 dark:text-slate-400 font-medium"></p>
             </div>
 
             <!-- Footer warning notes -->
-            <div class="text-xs text-slate-400 space-y-1 font-mono text-center sm:text-left">
-                <p id="cf-ray-id">Ray ID: 5f4f37331a7f1cfc • Location: Ho Chi Minh City, VN</p>
+            <div class="text-xs text-slate-400 space-y-1 font-mono text-center sm:text-left pt-2">
+                <p id="cf-ray-id">Ray ID: Đang tạo...</p>
                 <p class="font-bold text-slate-500 dark:text-slate-400">Performance & security by MrFice5</p>
             </div>
         </div>
 
         <!-- Bottom bar -->
-        <div class="w-full max-w-lg pb-2 text-center">
+        <div class="w-full max-w-md pb-2 text-center">
             <p class="text-[11px] text-slate-400">
                 Khoa Công Nghệ Thông Tin • Cao Đẳng Kỹ Thuật Cao Thắng © 2026
             </p>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- MODAL POPUP: CHIẾC XE PHÂN KHỐI LỚN RỒ GA CHẠY 100% TỐC ĐỘ                -->
+    <!-- ========================================================================= -->
+    <div id="bike-loading-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-md bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-900 rounded-3xl p-6 shadow-2xl space-y-5 fade-enter relative overflow-hidden">
+            
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span class="text-xs font-black uppercase text-indigo-600 dark:text-indigo-400 tracking-wider">Đang Kiểm Tra Tốc Độ Mạng</span>
+                </div>
+                <span id="bike-ping-display" class="font-mono text-xs text-slate-500 dark:text-slate-400 font-bold">Ping: 12ms</span>
+            </div>
+
+            <div class="text-center space-y-1">
+                <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white" id="bike-status-title">
+                    🏍️ Đang Rồ Ga Vít Tốc Độ...
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400" id="bike-status-desc">
+                    Tối ưu hóa băng thông tải 325 câu hỏi Tiếng Anh Chuyên Ngành
+                </p>
+            </div>
+
+            <!-- TRACK & MOTORBIKE RUNNER -->
+            <div class="relative pt-8 pb-3">
+                <!-- Track Line -->
+                <div class="h-3.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-200 dark:border-slate-700 relative">
+                    <div id="bike-progress-fill" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-rose-500 rounded-full w-0 transition-all duration-75"></div>
+                </div>
+
+                <!-- Superbike Rider Element -->
+                <div id="bike-rider" class="absolute top-0 left-0 -translate-x-1/2 flex flex-col items-center pointer-events-none transition-all duration-75" style="left: 0%;">
+                    <div class="relative text-2xl filter drop-shadow-md">
+                        <i class="fa-solid fa-motorcycle text-indigo-600 dark:text-indigo-400 transform -scale-x-100 animate-bounce" style="animation-duration: 0.25s;"></i>
+                    </div>
+                    <span id="bike-percent-badge" class="font-mono text-[10px] font-black bg-indigo-600 text-white px-2 py-0.5 rounded-full mt-0.5 shadow-sm">
+                        0%
+                    </span>
+                </div>
+            </div>
+
+            <!-- Destination Flag -->
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 font-semibold px-1">
+                <span>Start: 0 KM/H</span>
+                <span class="text-rose-500 font-bold"><i class="fa-solid fa-flag-checkered mr-1"></i>Vạch Đích 100%</span>
+            </div>
+
         </div>
     </div>
 
@@ -245,31 +243,29 @@
     <!-- ========================================================================= -->
     <div id="main-portal" class="min-h-full flex flex-col opacity-0 pointer-events-none transition-opacity duration-300">
         
-        <!-- TOP NAVBAR -->
-        <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16 gap-2">
+        <!-- TOP NAVBAR (CHỐNG TRÀN LỆCH MOBILE) -->
+        <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm w-full">
+            <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 gap-2 w-full">
                     
                     <!-- Brand Title -->
-                    <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="switchMainTab('bank')">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25">
-                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    <div class="flex items-center space-x-2.5 cursor-pointer min-w-0" onclick="switchMainTab('bank')">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 shrink-0">
+                            <i class="fa-solid fa-graduation-cap text-base sm:text-lg"></i>
                         </div>
-                        <div>
-                            <div class="flex items-center space-x-2">
-                                <span class="font-black text-sm sm:text-base tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                                    HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026
-                                </span>
-                            </div>
-                            <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Đề cương 325 câu ôn tập Tiếng Anh Chuyên Ngành CNTT</p>
+                        <div class="truncate">
+                            <span class="font-black text-xs sm:text-base tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent block truncate">
+                                HỆ THỐNG ÔN THI CKC 2026
+                            </span>
+                            <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium hidden md:block">Đề cương 325 câu ôn tập Tiếng Anh Chuyên Ngành CNTT</p>
                         </div>
                     </div>
 
-                    <!-- Navigation Tabs -->
-                    <nav class="flex items-center p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700/60 shrink-0">
+                    <!-- Desktop Navigation Tabs -->
+                    <nav class="hidden md:flex items-center p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 shrink-0">
                         <button id="nav-bank-btn" onclick="switchMainTab('bank')" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg transition-all duration-150 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm">
                             <i class="fa-solid fa-book-open"></i>
-                            <span class="hidden sm:inline">Ngân Hàng</span> 325 Câu
+                            <span>Ngân Hàng 325 Câu</span>
                         </button>
                         <button id="nav-tests-btn" onclick="switchMainTab('tests')" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg transition-all duration-150 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
                             <i class="fa-solid fa-clipboard-check"></i>
@@ -277,28 +273,28 @@
                         </button>
                     </nav>
 
-                    <!-- Utility Buttons (Audio Player & DarkMode & Lock) -->
-                    <div class="flex items-center space-x-2">
+                    <!-- Utility Buttons (Right Actions) -->
+                    <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
                         <!-- Music Player Trigger Button -->
-                        <button onclick="toggleMusicModal()" id="btn-music-control" class="relative p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold border border-indigo-200 dark:border-indigo-800 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 transition flex items-center gap-1.5" title="Mở Trình Phát Nhạc Ôn Thi (MP3 / Lo-Fi)">
+                        <button onclick="toggleMusicModal()" id="btn-music-control" class="relative p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold border border-indigo-200 dark:border-indigo-800 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 transition flex items-center gap-1.5" title="Mở Trình Phát Nhạc Ôn Thi">
                             <i id="music-indicator-icon" class="fa-solid fa-music"></i>
-                            <span class="hidden md:inline" id="music-btn-label">Nhạc Ôn Tập</span>
+                            <span class="hidden lg:inline" id="music-btn-label">Nhạc Ôn Tập</span>
                             <span id="music-playing-dot" class="w-2 h-2 rounded-full bg-emerald-500 absolute -top-0.5 -right-0.5 hidden animate-ping"></span>
                         </button>
 
                         <!-- Saved Bookmark Filter -->
                         <button onclick="toggleFavoritesOnly()" id="btn-fav-toggle" class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1" title="Xem câu hỏi đã gắn dấu sao">
                             <i class="fa-solid fa-star text-amber-400"></i>
-                            <span class="hidden lg:inline">(<span id="saved-stars-count">0</span>)</span>
+                            <span class="hidden sm:inline">(<span id="saved-stars-count">0</span>)</span>
                         </button>
 
                         <!-- Dark Mode Toggle -->
-                        <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Chuyển chế độ Sáng / Tối">
+                        <button onclick="toggleDarkMode()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Sáng / Tối">
                             <i id="theme-icon" class="fa-solid fa-moon"></i>
                         </button>
 
                         <!-- Lock Gateway -->
-                        <button onclick="lockAndReverify()" class="w-9 h-9 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Khóa ứng dụng & Xác minh lại">
+                        <button onclick="lockAndReverify()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Khóa ứng dụng & Xác minh lại">
                             <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         </button>
                     </div>
@@ -308,7 +304,7 @@
         </header>
 
         <!-- FLOATING MUSIC PLAYER DRAWER / MODAL -->
-        <div id="music-player-modal" class="hidden fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-[92vw] sm:w-96 bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800/80 rounded-3xl p-5 shadow-2xl space-y-4 fade-enter backdrop-blur-xl">
+        <div id="music-player-modal" class="hidden fixed bottom-20 right-3 sm:bottom-6 sm:right-6 z-40 w-[94vw] sm:w-96 bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800/80 rounded-3xl p-5 shadow-2xl space-y-4 fade-enter backdrop-blur-xl">
             <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
                 <div class="flex items-center space-x-2.5">
                     <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xs">
@@ -325,7 +321,7 @@
             </div>
 
             <!-- Drag & Drop / File Input Area -->
-            <div id="drop-audio-zone" class="border-2 border-dashed border-indigo-200 dark:border-indigo-900 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-2xl p-3 text-center cursor-pointer transition bg-indigo-50/40 dark:bg-indigo-950/20">
+            <div id="drop-audio-zone" class="border-2 border-dashed border-indigo-200 dark:border-indigo-900 hover:border-indigo-500 rounded-2xl p-3 text-center cursor-pointer transition bg-indigo-50/40 dark:bg-indigo-950/20">
                 <input type="file" id="mp3-file-input" accept="audio/mp3,audio/*" class="hidden" onchange="handleAudioFileSelect(event)">
                 <label for="mp3-file-input" class="cursor-pointer space-y-1 block">
                     <i class="fa-solid fa-cloud-arrow-up text-indigo-600 dark:text-indigo-400 text-lg"></i>
@@ -336,7 +332,6 @@
 
             <!-- Player Controls -->
             <div class="space-y-3">
-                <!-- Seek Bar -->
                 <div>
                     <input type="range" id="audio-seek-bar" value="0" min="0" max="100" class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600" oninput="seekCustomAudio()">
                     <div class="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
@@ -345,28 +340,24 @@
                     </div>
                 </div>
 
-                <!-- Main Action Buttons -->
                 <div class="flex items-center justify-between pt-1">
-                    <!-- Fallback Lo-Fi Synth Button -->
                     <button onclick="toggleAmbientSynth()" id="btn-ambient-synth" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
                         <i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i>
                         <span>Lo-Fi Synth</span>
                     </button>
 
-                    <!-- Play / Pause -->
                     <div class="flex items-center space-x-2">
-                        <button onclick="rewindAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <button onclick="rewindAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition">
                             <i class="fa-solid fa-rotate-left"></i>
                         </button>
                         <button onclick="toggleAudioPlayPause()" id="btn-play-pause-audio" class="w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center text-sm shadow-md shadow-indigo-600/30 transition">
                             <i id="audio-play-icon" class="fa-solid fa-play ml-0.5"></i>
                         </button>
-                        <button onclick="forwardAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        <button onclick="forwardAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition">
                             <i class="fa-solid fa-rotate-right"></i>
                         </button>
                     </div>
 
-                    <!-- Volume slider -->
                     <div class="flex items-center space-x-1.5">
                         <button onclick="toggleAudioMute()" id="btn-audio-mute" class="text-xs text-slate-500 hover:text-indigo-600 transition">
                             <i id="audio-volume-icon" class="fa-solid fa-volume-high"></i>
@@ -376,28 +367,64 @@
                 </div>
             </div>
 
-            <!-- Hidden native audio element -->
             <audio id="native-audio-player" class="hidden"></audio>
         </div>
 
 
         <!-- MAIN CONTENT AREA -->
-        <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8">
+        <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8 space-y-6">
+
+            <!-- ============================================================= -->
+            <!-- REAL-TIME EXAM COUNTDOWN WIDGET (CHUYỂN VÀO TRANG CHÍNH ÔN THI) -->
+            <!-- ============================================================= -->
+            <div class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-purple-900 rounded-3xl p-4 sm:p-6 text-white shadow-xl relative overflow-hidden border border-indigo-700/50">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+                    <div class="space-y-1 text-center md:text-left">
+                        <div class="inline-flex items-center gap-1.5 text-xs font-black tracking-wider uppercase bg-white/10 px-3 py-1 rounded-full text-indigo-200">
+                            <i class="fa-solid fa-fire text-amber-400 animate-pulse"></i>
+                            <span>Thời Gian Đếm Ngược Ngày Thi Chính Thức</span>
+                        </div>
+                        <h3 class="text-base sm:text-xl font-black">Thời Khắc Phát Đề: 13:00 Ngày 28/10/2026</h3>
+                        <p class="text-[11px] sm:text-xs text-indigo-200">Hãy tăng tốc luyện hết 325 câu hỏi để đạt điểm tối đa!</p>
+                    </div>
+
+                    <!-- 4 Digits Grid -->
+                    <div class="grid grid-cols-4 gap-2 font-mono text-center w-full md:w-auto">
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-2.5 sm:px-4 border border-white/10 min-w-[64px]">
+                            <span id="cd-days" class="text-xl sm:text-2xl font-black text-amber-400 block">00</span>
+                            <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold">Ngày</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-2.5 sm:px-4 border border-white/10 min-w-[64px]">
+                            <span id="cd-hours" class="text-xl sm:text-2xl font-black text-white block">00</span>
+                            <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold">Giờ</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-2.5 sm:px-4 border border-white/10 min-w-[64px]">
+                            <span id="cd-mins" class="text-xl sm:text-2xl font-black text-white block">00</span>
+                            <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold">Phút</span>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-2.5 sm:px-4 border border-white/10 min-w-[64px]">
+                            <span id="cd-secs" class="text-xl sm:text-2xl font-black text-rose-400 block">00</span>
+                            <span class="text-[9px] uppercase tracking-wider text-slate-300 font-bold">Giây</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- ============================================================= -->
             <!-- TAB 1: 325 QUESTIONS REPOSITORY (NGÂN HÀNG CÂU HỎI)            -->
             <!-- ============================================================= -->
             <section id="tab-bank" class="space-y-6">
                 <!-- Search & Filters Container -->
-                <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-card space-y-4">
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-card space-y-4">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
                         <div>
                             <h2 class="text-lg sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
                                 <i class="fa-solid fa-database text-indigo-500"></i>
-                                <span>Ngân Hàng 325 Câu Hỏi Tiếng Anh Chuyên Ngành</span>
+                                <span>Ngân Hàng 325 Câu Hỏi Đề Cương</span>
                             </h2>
-                            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                                Trích xuất trực tiếp từ đề cương chuẩn Khoa CNTT 2026: Hardwares, OS, AI, Games/Code, Cloud, Email & CV.
+                            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                                Trích xuất trực tiếp: Hardwares, OS, AI, Games/Code, Cloud, Email & CV.
                             </p>
                         </div>
                         <div class="flex items-center space-x-2 bg-indigo-50/80 dark:bg-indigo-950/60 px-3.5 py-2 rounded-2xl border border-indigo-100 dark:border-indigo-900 text-xs font-bold text-indigo-700 dark:text-indigo-300 self-start md:self-auto shrink-0">
@@ -407,16 +434,16 @@
                     </div>
 
                     <!-- Filter Controls -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-1">
                         <!-- Search Box -->
                         <div class="md:col-span-6 relative">
                             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-                            <input id="bank-search" type="text" oninput="filterBankQuestions()" placeholder="Tìm từ khóa tiếng Anh, thuật ngữ, số thứ tự (ví dụ: CPU, WORA, ATS, Q. 25)..." class="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition" />
+                            <input id="bank-search" type="text" oninput="filterBankQuestions()" placeholder="Tìm từ khóa, thuật ngữ (ví dụ: CPU, WORA, ATS, Q. 25)..." class="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
                         </div>
 
                         <!-- Chapter Filter -->
                         <div class="md:col-span-4">
-                            <select id="bank-chapter-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition font-medium">
+                            <select id="bank-chapter-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition font-medium">
                                 <option value="ALL">Toàn bộ 6 Chương (325 câu đầy đủ)</option>
                                 <option value="Chương 1">Chương 1: Computer Hardwares (Câu 1 - 30)</option>
                                 <option value="Chương 2">Chương 2: Operating Systems (Câu 31 - 80)</option>
@@ -429,7 +456,7 @@
 
                         <!-- Bloom Filter -->
                         <div class="md:col-span-2">
-                            <select id="bank-bloom-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition font-medium">
+                            <select id="bank-bloom-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition font-medium">
                                 <option value="ALL">Tất cả mức độ</option>
                                 <option value="Biết">Mức Biết</option>
                                 <option value="Hiểu">Mức Hiểu</option>
@@ -442,9 +469,9 @@
                     <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
                         <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                             <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                            <span>Mẹo thi: Nhấn nút <strong>"Phân tích từ khóa (Key hints)"</strong> để bắt mẹo từ khóa nhanh.</span>
+                            <span>Mẹo thi: Nhấn nút <strong>"Phân tích từ khóa"</strong> để nhớ nhanh mẹo chọn bài.</span>
                         </div>
-                        <div class="flex items-center space-x-3">
+                        <div>
                             <button onclick="toggleAllBankExplanations()" class="font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
                                 <i class="fa-regular fa-eye"></i>
                                 <span id="toggle-all-exp-txt">Hiện toàn bộ giải thích</span>
@@ -467,24 +494,20 @@
 
                 <!-- VIEW 1: Test Selection Dashboard -->
                 <div id="tests-grid-view" class="space-y-6">
-                    <!-- Hero Banner -->
-                    <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-purple-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-purple-600 rounded-3xl p-5 sm:p-8 text-white shadow-xl relative overflow-hidden">
                         <div class="relative z-10 max-w-2xl">
                             <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[11px] font-bold uppercase tracking-wider">
                                 Luyện Thi Đột Phá
                             </span>
-                            <h2 class="text-2xl sm:text-3xl font-black mt-3">10 Đề Thi Tiếng Anh Chuyên Ngành</h2>
-                            <p class="text-indigo-100 text-xs sm:text-sm mt-2 leading-relaxed">
-                                Toàn bộ 325 câu hỏi được chia cân đối vào 10 đề thi (~32-33 câu/đề, tổng hợp đủ 6 chương). Bạn có thể chọn học tự do có đáp án ngay hoặc bấm giờ thi chuẩn 45 phút.
+                            <h2 class="text-xl sm:text-3xl font-black mt-2.5">10 Đề Thi Tiếng Anh Chuyên Ngành</h2>
+                            <p class="text-indigo-100 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                                Toàn bộ 325 câu hỏi được chia đều vào 10 đề thi (~32-33 câu/đề). Chọn Ôn Luyện để xem lời giải tức thì hoặc Thi Thử 45 phút chuẩn format.
                             </p>
-                        </div>
-                        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-12 translate-y-12">
-                            <i class="fa-solid fa-award text-9xl"></i>
                         </div>
                     </div>
 
                     <!-- 10 Test Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="test-cards-container">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="test-cards-container">
                         <!-- Populated by JS -->
                     </div>
                 </div>
@@ -493,80 +516,54 @@
                 <div id="test-workspace-view" class="hidden space-y-5">
                     
                     <!-- Sticky Top Bar for current test -->
-                    <div class="sticky top-20 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-md flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <button onclick="exitTestToDashboard()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Quay lại danh sách đề">
+                    <div class="sticky top-16 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-slate-200 dark:border-slate-800 shadow-md flex items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2.5 min-w-0">
+                            <button onclick="exitTestToDashboard()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-arrow-left"></i>
                             </button>
-                            <div>
-                                <div class="flex items-center gap-2">
-                                    <h3 id="current-test-title" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">Đề Thi Số 1</h3>
-                                    <span id="current-test-mode-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">Ôn Luyện</span>
+                            <div class="truncate">
+                                <div class="flex items-center gap-1.5">
+                                    <h3 id="current-test-title" class="font-bold text-xs sm:text-base text-slate-900 dark:text-white truncate">Đề Thi Số 1</h3>
+                                    <span id="current-test-mode-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 shrink-0">Ôn Luyện</span>
                                 </div>
-                                <p class="text-[11px] text-slate-500 dark:text-slate-400" id="current-test-progress-txt">Tiến độ: 0/33 câu</p>
+                                <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400" id="current-test-progress-txt">Tiến độ: 0/33 câu</p>
                             </div>
                         </div>
 
                         <!-- Right: Timer & Submit Action -->
-                        <div class="flex items-center space-x-3">
-                            <div id="test-timer-box" class="hidden items-center space-x-2 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 px-3 py-1.5 rounded-xl text-amber-700 dark:text-amber-300 font-mono text-xs sm:text-sm font-bold">
+                        <div class="flex items-center space-x-2 shrink-0">
+                            <div id="test-timer-box" class="hidden items-center space-x-1.5 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 px-2.5 py-1.5 rounded-xl text-amber-700 dark:text-amber-300 font-mono text-xs sm:text-sm font-bold">
                                 <i class="fa-solid fa-stopwatch animate-pulse"></i>
                                 <span id="test-timer-val">45:00</span>
                             </div>
-                            <button id="btn-submit-test" onclick="finishAndSubmitTest()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/25 transition flex items-center space-x-1.5">
+                            <button id="btn-submit-test" onclick="finishAndSubmitTest()" class="px-3.5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md transition flex items-center space-x-1.5">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 <span>Nộp Bài</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Workspace Layout: Left questions, Right Palette -->
+                    <!-- Workspace Layout -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                        
-                        <!-- Left: Questions Stream -->
+                        <!-- Questions Stream -->
                         <div class="lg:col-span-8 space-y-4" id="test-questions-container">
                             <!-- Populated by JS -->
                         </div>
 
-                        <!-- Right: Palette Navigator -->
-                        <div class="lg:col-span-4 sticky top-44 space-y-4">
+                        <!-- Right / Bottom: Palette Navigator -->
+                        <div class="lg:col-span-4 sticky top-36 space-y-4">
                             <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-card">
                                 <div class="flex items-center justify-between mb-3">
                                     <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
                                         <i class="fa-solid fa-table-cells text-indigo-500"></i>
-                                        <span>Danh Sách Câu Hỏi</span>
+                                        <span>Bảng Câu Hỏi</span>
                                     </h4>
                                     <span id="palette-status-count" class="text-xs text-slate-500 font-mono">0/33</span>
                                 </div>
 
-                                <!-- Legend -->
-                                <div class="grid grid-cols-3 gap-2 mb-4 text-[10px] text-slate-500 dark:text-slate-400">
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-3 h-3 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></span>
-                                        <span>Chưa làm</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-3 h-3 rounded bg-indigo-600 text-white"></span>
-                                        <span>Đã chọn</span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5">
-                                        <span class="w-3 h-3 rounded bg-amber-400"></span>
-                                        <span>Xem lại</span>
-                                    </div>
-                                </div>
-
-                                <!-- Grid of question numbers -->
                                 <div id="palette-buttons-grid" class="grid grid-cols-5 sm:grid-cols-6 gap-2 max-h-72 overflow-y-auto p-1">
                                     <!-- Populated by JS -->
                                 </div>
-                            </div>
-
-                            <!-- Reset Button -->
-                            <div class="bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900 rounded-2xl p-4 text-xs text-indigo-900 dark:text-indigo-200 flex items-center justify-between">
-                                <span>Muốn làm lại đề này từ đầu?</span>
-                                <button onclick="restartCurrentTest()" class="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">
-                                    Làm lại
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -581,12 +578,28 @@
 
         </main>
 
+        <!-- MOBILE BOTTOM NAVIGATION DOCK (CHỈ HIỆN TRÊN MOBILE, CHỐNG LỆCH GIAO DIỆN) -->
+        <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 flex items-center justify-around py-2 px-3 shadow-2xl">
+            <button onclick="switchMainTab('bank')" id="mob-nav-bank-btn" class="flex flex-col items-center justify-center flex-1 py-1 text-indigo-600 dark:text-indigo-400 font-bold transition">
+                <i class="fa-solid fa-book-open text-lg"></i>
+                <span class="text-[10px] mt-1">325 Câu Hỏi</span>
+            </button>
+            <button onclick="switchMainTab('tests')" id="mob-nav-tests-btn" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-500 dark:text-slate-400 font-medium transition">
+                <i class="fa-solid fa-clipboard-check text-lg"></i>
+                <span class="text-[10px] mt-1">10 Đề Thi</span>
+            </button>
+            <button onclick="toggleMusicModal()" class="flex flex-col items-center justify-center flex-1 py-1 text-slate-500 dark:text-slate-400 font-medium transition">
+                <i class="fa-solid fa-headphones text-lg"></i>
+                <span class="text-[10px] mt-1">Nghe Nhạc</span>
+            </button>
+        </nav>
+
         <!-- FOOTER -->
-        <footer class="mt-auto py-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 bg-white/50 dark:bg-slate-900/50">
+        <footer class="mt-auto py-5 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 bg-white/50 dark:bg-slate-900/50">
             <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-                <p>© 2026 HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026 • Khoa Công Nghệ Thông Tin</p>
+                <p>© 2026 HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026 • Khoa CNTT</p>
                 <div class="flex items-center space-x-3 text-[11px]">
-                    <span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                    <span class="text-emerald-600 dark:text-emerald-400 font-bold">
                         <i class="fa-solid fa-circle-check"></i> Turnstile Verified
                     </span>
                     <span>•</span>
@@ -599,11 +612,11 @@
 
 
     <!-- ========================================================================= -->
-    <!-- JAVASCRIPT: SOUND FX, TOUCH RIPPLE, AUDIO PLAYER & CORE ENGINE            -->
+    <!-- JAVASCRIPT: WEB AUDIO API & MOTORBIKE SOUND SYNTHESIS                     -->
     <!-- ========================================================================= -->
     <script>
         /**
-         * 1. AUDIO SYNTHESIS & SOUND FX (Web Audio API)
+         * 1. HỆ THỐNG ÂM THANH NÂNG CAO (WEB AUDIO API SYNTHESIZER)
          */
         let audioCtxInstance = null;
 
@@ -617,63 +630,82 @@
             return audioCtxInstance;
         }
 
-        // Click / Touch subtle sound
+        // Mechanical switch click
         function playUiClickSound() {
             try {
                 const ctx = getAudioContext();
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(440, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.04);
+                osc.frequency.setValueAtTime(520, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.035);
                 gain.gain.setValueAtTime(0.04, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.035);
                 osc.connect(gain);
                 gain.connect(ctx.destination);
                 osc.start();
-                osc.stop(ctx.currentTime + 0.04);
+                osc.stop(ctx.currentTime + 0.035);
             } catch (e) {}
         }
 
-        // Correct Answer / Verification Ding
+        // Motorbike Engine Revving Sound (Rồ ga xe phân khối lớn)
+        function playMotorbikeRevSound(pitchMultiplier = 1) {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                const baseFreq = 95 * pitchMultiplier;
+                osc.frequency.setValueAtTime(baseFreq, ctx.currentTime);
+                osc.frequency.linearRampToValueAtTime(baseFreq * 2.8, ctx.currentTime + 0.25);
+                osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.2, ctx.currentTime + 0.45);
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.2);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.45);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.45);
+            } catch (e) {}
+        }
+
+        // Cyber Unlock Ding
         function playSuccessSound() {
             try {
                 const ctx = getAudioContext();
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                const notes = [523.25, 659.25, 783.99, 1046.50];
                 notes.forEach((freq, idx) => {
                     const osc = ctx.createOscillator();
                     const gain = ctx.createGain();
                     osc.type = 'sine';
-                    osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
-                    gain.gain.setValueAtTime(0.06, ctx.currentTime + idx * 0.08);
-                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.25);
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.07);
+                    gain.gain.setValueAtTime(0.06, ctx.currentTime + idx * 0.07);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.07 + 0.25);
                     osc.connect(gain);
                     gain.connect(ctx.destination);
-                    osc.start(ctx.currentTime + idx * 0.08);
-                    osc.stop(ctx.currentTime + idx * 0.08 + 0.25);
+                    osc.start(ctx.currentTime + idx * 0.07);
+                    osc.stop(ctx.currentTime + idx * 0.07 + 0.25);
                 });
             } catch (e) {}
         }
 
-        // Incorrect Answer Tone
         function playWrongSound() {
             try {
                 const ctx = getAudioContext();
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(180, ctx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.2);
+                osc.frequency.setValueAtTime(200, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.18);
                 gain.gain.setValueAtTime(0.06, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.18);
                 osc.connect(gain);
                 gain.connect(ctx.destination);
                 osc.start();
-                osc.stop(ctx.currentTime + 0.2);
+                osc.stop(ctx.currentTime + 0.18);
             } catch (e) {}
         }
 
-        // Celebration chime for finishing exam
         function playCelebrationFanfare() {
             try {
                 const ctx = getAudioContext();
@@ -682,50 +714,50 @@
                     const osc = ctx.createOscillator();
                     const gain = ctx.createGain();
                     osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
-                    gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.12);
-                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.4);
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.1);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.1);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.1 + 0.4);
                     osc.connect(gain);
                     gain.connect(ctx.destination);
-                    osc.start(ctx.currentTime + i * 0.12);
-                    osc.stop(ctx.currentTime + i * 0.12 + 0.4);
+                    osc.start(ctx.currentTime + i * 0.1);
+                    osc.stop(ctx.currentTime + i * 0.1 + 0.4);
                 });
             } catch (e) {}
         }
 
         /**
-         * 2. INTERACTIVE TOUCH / CLICK RIPPLE ON ANYWHERE
+         * 2. INTERACTIVE TOUCH / CLICK RIPPLE
          */
         function initClickTouchRipple() {
-            const createRipple = (x, y) => {
+            window.addEventListener('pointerdown', (e) => {
                 playUiClickSound();
                 const ripple = document.createElement('div');
                 ripple.className = 'touch-ripple';
-                ripple.style.left = `${x}px`;
-                ripple.style.top = `${y}px`;
+                ripple.style.left = `${e.clientX}px`;
+                ripple.style.top = `${e.clientY}px`;
                 document.body.appendChild(ripple);
-                setTimeout(() => {
-                    ripple.remove();
-                }, 500);
-            };
-
-            window.addEventListener('pointerdown', (e) => {
-                // Avoid firing twice on complex inputs if needed
-                createRipple(e.clientX, e.clientY);
+                setTimeout(() => ripple.remove(), 500);
             }, { passive: true });
         }
 
 
         /**
-         * 3. CLOUDFLARE TURNSTILE & EXAM COUNTDOWN
+         * 3. CLOUDFLARE TURNSTILE & MOTORBIKE 100% LOADING ENGINE
          */
         const CLOUDFLARE_STORAGE_KEY = 'ckc_turnstile_verified_2026';
         let isTurnstileVerifying = false;
 
-        // Auto extract IP & Location
+        function generateRandomRayId() {
+            const chars = '0123456789abcdef';
+            let ray = '';
+            for (let i = 0; i < 16; i++) {
+                ray += chars[Math.floor(Math.random() * chars.length)];
+            }
+            document.getElementById('cf-ray-id').textContent = `Ray ID: ${ray} • Location: Ho Chi Minh City, VN`;
+        }
+
         function fetchClientIpInfo() {
             const ipDisplay = document.getElementById('cf-client-ip');
-            // Try fetch public IP via ipapi
             fetch('https://ipapi.co/json/')
                 .then(res => res.json())
                 .then(data => {
@@ -733,17 +765,106 @@
                         const city = data.city || 'Ho Chi Minh City';
                         const country = data.country_code || 'VN';
                         ipDisplay.textContent = `IP: ${data.ip} (${city}, ${country})`;
-                    } else {
-                        throw new Error('Fallback IP');
                     }
                 })
                 .catch(() => {
-                    // Fallback realistic IP
                     ipDisplay.textContent = `IP: 14.161.42.109 (Ho Chi Minh City, VN)`;
                 });
         }
 
-        // Target Date: 13:00 (1:00 PM), October 28, 2026
+        // KÍCH HOẠT XÁC MINH & CHẠY XE PHÂN KHỐI LỚN
+        function triggerTurnstileVerification() {
+            if (isTurnstileVerifying) return;
+            isTurnstileVerifying = true;
+
+            const checkboxContainer = document.getElementById('cf-checkbox-container');
+            checkboxContainer.innerHTML = `<i class="fa-solid fa-spinner animate-spin text-indigo-600 text-sm"></i>`;
+
+            // Mở popup xe phân khối lớn
+            const bikeModal = document.getElementById('bike-loading-modal');
+            bikeModal.classList.remove('hidden');
+
+            const fill = document.getElementById('bike-progress-fill');
+            const rider = document.getElementById('bike-rider');
+            const percentBadge = document.getElementById('bike-percent-badge');
+            const pingDisplay = document.getElementById('bike-ping-display');
+
+            // Đoạn ping ngẫu nhiên
+            const randomPing = Math.floor(Math.random() * 15) + 8;
+            pingDisplay.textContent = `Ping: ${randomPing}ms (Ổn định)`;
+
+            let currentProgress = 0;
+            playMotorbikeRevSound(1.0);
+
+            const interval = setInterval(() => {
+                // Tăng tốc độ ngẫu nhiên mô phỏng mạng thật
+                const step = Math.floor(Math.random() * 8) + 4;
+                currentProgress = Math.min(100, currentProgress + step);
+
+                fill.style.width = `${currentProgress}%`;
+                rider.style.left = `${currentProgress}%`;
+                percentBadge.textContent = `${currentProgress}%`;
+
+                // Hiệu ứng khói xả sau đuôi xe
+                const smoke = document.createElement('div');
+                smoke.className = 'bike-exhaust';
+                smoke.style.left = `${currentProgress}%`;
+                smoke.style.top = '14px';
+                rider.parentElement.appendChild(smoke);
+                setTimeout(() => smoke.remove(), 400);
+
+                if (currentProgress % 25 === 0) {
+                    playMotorbikeRevSound(1 + (currentProgress / 100));
+                }
+
+                if (currentProgress >= 100) {
+                    clearInterval(interval);
+                    percentBadge.textContent = '100% ĐẠT!';
+                    percentBadge.className = 'font-mono text-[10px] font-black bg-emerald-600 text-white px-2 py-0.5 rounded-full mt-0.5 shadow-sm';
+                    document.getElementById('bike-status-title').innerHTML = `🚀 Đã Hoàn Thành Xác Minh & Tải Đề Cương!`;
+
+                    playSuccessSound();
+                    sessionStorage.setItem(CLOUDFLARE_STORAGE_KEY, 'true');
+
+                    setTimeout(() => {
+                        bikeModal.classList.add('hidden');
+                        unlockMainPortal();
+                    }, 500);
+                }
+            }, 55);
+        }
+
+        function unlockMainPortal() {
+            const modal = document.getElementById('cf-verification-modal');
+            const portal = document.getElementById('main-portal');
+
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                portal.classList.remove('opacity-0', 'pointer-events-none');
+                portal.classList.add('fade-enter');
+            }, 250);
+        }
+
+        function lockAndReverify() {
+            sessionStorage.removeItem(CLOUDFLARE_STORAGE_KEY);
+            window.location.reload();
+        }
+
+        function initSecurityGateway() {
+            generateRandomRayId();
+            fetchClientIpInfo();
+
+            const isVerified = sessionStorage.getItem(CLOUDFLARE_STORAGE_KEY) === 'true';
+            if (isVerified) {
+                const modal = document.getElementById('cf-verification-modal');
+                const portal = document.getElementById('main-portal');
+                modal.classList.add('hidden');
+                portal.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // ĐỒNG HỒ ĐẾM NGƯỢC THỜI GIAN THI: 13:00 NGÀY 28/10/2026
         const EXAM_TARGET_DATE = new Date('2026-10-28T13:00:00+07:00').getTime();
 
         function initExamCountdown() {
@@ -751,7 +872,6 @@
             const hoursEl = document.getElementById('cd-hours');
             const minsEl = document.getElementById('cd-mins');
             const secsEl = document.getElementById('cd-secs');
-            const labelEl = document.getElementById('cd-target-label');
 
             function updateTime() {
                 const now = new Date().getTime();
@@ -762,7 +882,6 @@
                     hoursEl.textContent = '00';
                     minsEl.textContent = '00';
                     secsEl.textContent = '00';
-                    labelEl.textContent = 'Đã đến giờ thi Tiếng Anh Chuyên Ngành!';
                     return;
                 }
 
@@ -775,82 +894,15 @@
                 hoursEl.textContent = h.toString().padStart(2, '0');
                 minsEl.textContent = m.toString().padStart(2, '0');
                 secsEl.textContent = s.toString().padStart(2, '0');
-                labelEl.textContent = `Chính xác đến thời điểm phát đề: 13:00 ngày 28 tháng 10 năm 2026`;
             }
 
             updateTime();
             setInterval(updateTime, 1000);
         }
 
-        function triggerTurnstileVerification() {
-            if (isTurnstileVerifying) return;
-            isTurnstileVerifying = true;
-
-            const unchecked = document.getElementById('cf-unchecked-box');
-            const spinner = document.getElementById('cf-loading-spinner');
-            const successCheck = document.getElementById('cf-success-check');
-            const statusLabel = document.getElementById('cf-status-label');
-            const subLabel = document.getElementById('cf-sub-label');
-            const progressBg = document.getElementById('cf-progress-bar-bg');
-            const progressFill = document.getElementById('cf-progress-bar-fill');
-
-            unchecked.classList.add('hidden');
-            spinner.classList.remove('hidden');
-            progressBg.classList.remove('hidden');
-            progressFill.style.width = '70%';
-            statusLabel.textContent = "Đang kiểm tra bảo mật & xác thực...";
-            subLabel.textContent = "Phân tích chữ ký số trình duyệt & xác thực thí sinh";
-
-            setTimeout(() => {
-                progressFill.style.width = '100%';
-                spinner.classList.add('hidden');
-                successCheck.classList.remove('hidden');
-                statusLabel.textContent = "Xác minh thành công!";
-                statusLabel.classList.add('text-emerald-600', 'dark:text-emerald-400');
-                subLabel.textContent = "Chuyển tiếp đến hệ thống ôn thi CKC 2026...";
-                
-                playSuccessSound();
-                sessionStorage.setItem(CLOUDFLARE_STORAGE_KEY, 'true');
-
-                setTimeout(() => {
-                    unlockMainPortal();
-                }, 600);
-            }, 1100);
-        }
-
-        function unlockMainPortal() {
-            const modal = document.getElementById('cf-verification-modal');
-            const portal = document.getElementById('main-portal');
-
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                portal.classList.remove('opacity-0', 'pointer-events-none');
-                portal.classList.add('fade-enter');
-            }, 300);
-        }
-
-        function lockAndReverify() {
-            sessionStorage.removeItem(CLOUDFLARE_STORAGE_KEY);
-            window.location.reload();
-        }
-
-        function initSecurityGateway() {
-            fetchClientIpInfo();
-            initExamCountdown();
-
-            const isVerified = sessionStorage.getItem(CLOUDFLARE_STORAGE_KEY) === 'true';
-            if (isVerified) {
-                const modal = document.getElementById('cf-verification-modal');
-                const portal = document.getElementById('main-portal');
-                modal.classList.add('hidden');
-                portal.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        }
-
 
         /**
-         * 4. BUILT-IN BACKGROUND MUSIC PLAYER (MP3 UPLOAD & LO-FI SYNTH)
+         * 4. AUDIO PLAYER & SYNTH LO-FI
          */
         const nativeAudio = document.getElementById('native-audio-player');
         let isAudioPlaying = false;
@@ -858,41 +910,17 @@
         let synthInterval = null;
 
         function toggleMusicModal() {
-            const modal = document.getElementById('music-player-modal');
-            modal.classList.toggle('hidden');
+            document.getElementById('music-player-modal').classList.toggle('hidden');
         }
 
         function handleAudioFileSelect(event) {
             const file = event.target.files[0];
             if (file) {
-                loadAudioFile(file);
+                const url = URL.createObjectURL(file);
+                nativeAudio.src = url;
+                document.getElementById('audio-track-title').textContent = file.name;
+                nativeAudio.play().then(() => setPlayState(true)).catch(() => {});
             }
-        }
-
-        // Support Drag and drop
-        const dropZone = document.getElementById('drop-audio-zone');
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('border-indigo-600');
-        });
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('border-indigo-600');
-        });
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('border-indigo-600');
-            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                loadAudioFile(e.dataTransfer.files[0]);
-            }
-        });
-
-        function loadAudioFile(file) {
-            const url = URL.createObjectURL(file);
-            nativeAudio.src = url;
-            document.getElementById('audio-track-title').textContent = file.name;
-            nativeAudio.play().then(() => {
-                setPlayState(true);
-            }).catch(() => {});
         }
 
         function toggleAudioPlayPause() {
@@ -923,7 +951,7 @@
             if (playing) {
                 icon.className = "fa-solid fa-pause";
                 dot.classList.remove('hidden');
-                label.textContent = "Đang phát nhạc";
+                label.textContent = "Đang phát";
             } else {
                 icon.className = "fa-solid fa-play ml-0.5";
                 dot.classList.add('hidden');
@@ -940,9 +968,7 @@
             }
         });
 
-        nativeAudio.addEventListener('ended', () => {
-            setPlayState(false);
-        });
+        nativeAudio.addEventListener('ended', () => setPlayState(false));
 
         function seekCustomAudio() {
             const percent = document.getElementById('audio-seek-bar').value;
@@ -965,8 +991,7 @@
 
         function toggleAudioMute() {
             nativeAudio.muted = !nativeAudio.muted;
-            const icon = document.getElementById('audio-volume-icon');
-            icon.className = nativeAudio.muted ? "fa-solid fa-volume-xmark text-rose-500" : "fa-solid fa-volume-high";
+            document.getElementById('audio-volume-icon').className = nativeAudio.muted ? "fa-solid fa-volume-xmark text-rose-500" : "fa-solid fa-volume-high";
         }
 
         function formatSeconds(sec) {
@@ -975,27 +1000,26 @@
             return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
 
-        // Fallback Ambient Lo-Fi Synth generator (relaxing study chord progression)
         function toggleAmbientSynth() {
             if (isSynthPlaying) {
                 clearInterval(synthInterval);
                 isSynthPlaying = false;
-                document.getElementById('btn-ambient-synth').classList.remove('bg-purple-100', 'dark:bg-purple-950', 'border-purple-400');
+                document.getElementById('btn-ambient-synth').classList.remove('bg-purple-100', 'dark:bg-purple-950');
                 setPlayState(false);
                 document.getElementById('audio-track-title').textContent = "Đã dừng Lo-Fi Synth";
                 return;
             }
 
             isSynthPlaying = true;
-            document.getElementById('btn-ambient-synth').classList.add('bg-purple-100', 'dark:bg-purple-950', 'border-purple-400');
-            document.getElementById('audio-track-title').textContent = "Đang phát: Lo-Fi Study Chords (Tự động sinh)";
+            document.getElementById('btn-ambient-synth').classList.add('bg-purple-100', 'dark:bg-purple-950');
+            document.getElementById('audio-track-title').textContent = "Lo-Fi Study Synth";
             setPlayState(true);
 
             const chords = [
-                [261.63, 329.63, 392.00, 493.88], // Cmaj7
-                [220.00, 261.63, 329.63, 392.00], // Am7
-                [174.61, 220.00, 261.63, 329.63], // Fmaj7
-                [196.00, 246.94, 293.66, 392.00]  // G7
+                [261.63, 329.63, 392.00, 493.88],
+                [220.00, 261.63, 329.63, 392.00],
+                [174.61, 220.00, 261.63, 329.63],
+                [196.00, 246.94, 293.66, 392.00]
             ];
             let chordIdx = 0;
 
@@ -1940,10 +1964,42 @@
 
 
         /**
+         * 8. THEME & TABS SWITCHER (TỐI ƯU CẢ DESKTOP LẪN MOBILE BOTTOM BAR)
+         */
+        function switchMainTab(tab) {
+            const bankSec = document.getElementById('tab-bank');
+            const testsSec = document.getElementById('tab-tests');
+            const bankBtn = document.getElementById('nav-bank-btn');
+            const testsBtn = document.getElementById('nav-tests-btn');
+            const mobBankBtn = document.getElementById('mob-nav-bank-btn');
+            const mobTestsBtn = document.getElementById('mob-nav-tests-btn');
+
+            if (tab === 'bank') {
+                bankSec.classList.remove('hidden');
+                testsSec.classList.add('hidden');
+                bankBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm transition";
+                testsBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition";
+                
+                mobBankBtn.className = "flex flex-col items-center justify-center flex-1 py-1 text-indigo-600 dark:text-indigo-400 font-bold transition";
+                mobTestsBtn.className = "flex flex-col items-center justify-center flex-1 py-1 text-slate-500 dark:text-slate-400 font-medium transition";
+            } else {
+                bankSec.classList.add('hidden');
+                testsSec.classList.remove('hidden');
+                testsBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm transition";
+                bankBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition";
+
+                mobTestsBtn.className = "flex flex-col items-center justify-center flex-1 py-1 text-indigo-600 dark:text-indigo-400 font-bold transition";
+                mobBankBtn.className = "flex flex-col items-center justify-center flex-1 py-1 text-slate-500 dark:text-slate-400 font-medium transition";
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /**
          * 11. INITIALIZATION ON WINDOW LOAD
          */
         window.onload = function() {
             initSecurityGateway();
+            initExamCountdown();
             initClickTouchRipple();
             initTheme();
             saveFavoritesToStorage();
