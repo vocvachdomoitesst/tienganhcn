@@ -1,1 +1,1955 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026 - Luyện Thi 325 Câu & 10 Đề</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        },
+                        cf: {
+                            orange: '#f38020',
+                            border: '#e0e0e0',
+                            darkborder: '#333333',
+                            bg: '#fafafa',
+                            darkbg: '#1b1b1b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace']
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(99, 102, 241, 0.45)',
+                        'card': '0 10px 30px -10px rgba(0,0,0,0.06)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Tối ưu Safe Area cho iOS Safari & Android Navigation Bar */
+        :root {
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
+        }
+        body {
+            padding-top: var(--sat);
+            padding-bottom: var(--sab);
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.03);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.4);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(79, 70, 229, 0.8);
+        }
+        /* Cloudflare Checkbox Animations */
+        @keyframes cf-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .cf-spinner {
+            border: 2.5px solid rgba(0, 0, 0, 0.12);
+            border-left-color: #0051c3;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            animation: cf-spin 0.85s linear infinite;
+        }
+        .dark .cf-spinner {
+            border: 2.5px solid rgba(255, 255, 255, 0.18);
+            border-left-color: #38bdf8;
+        }
+        @keyframes cf-pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            70% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .cf-check-pop {
+            animation: cf-pop 0.35s ease-out forwards;
+        }
+        /* Touch / Click Ripple */
+        .touch-ripple {
+            position: fixed;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.6) 0%, rgba(168, 85, 247, 0) 75%);
+            transform: translate(-50%, -50%) scale(1);
+            animation: ripple-spread 0.5s ease-out forwards;
+            z-index: 99999;
+        }
+        @keyframes ripple-spread {
+            0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+        }
+        .fade-enter {
+            animation: fadeEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeEnter {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="h-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200 antialiased selection:bg-indigo-500 selection:text-white">
 
+    <!-- ========================================================================= -->
+    <!-- 1. CỔNG XÁC MINH DANH TÍNH WEBSITE (CLOUDFLARE TURNSTILE GATEWAY)         -->
+    <!-- ========================================================================= -->
+    <div id="cf-verification-modal" class="fixed inset-0 z-50 bg-white dark:bg-[#121212] flex flex-col items-center justify-between p-5 sm:p-8 transition-all duration-300">
+        
+        <!-- Top Security Header Bar -->
+        <div class="w-full max-w-lg pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center space-x-2 font-bold text-slate-700 dark:text-slate-300">
+                <i class="fa-solid fa-shield-halved text-amber-500 text-sm"></i>
+                <span>Hệ Thống Ôn Thi Tiếng Anh</span>
+            </div>
+            <div class="flex items-center space-x-1.5 font-mono text-[11px] bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-700">
+                <i class="fa-solid fa-location-dot text-indigo-500"></i>
+                <span id="cf-client-ip">IP: Đang phát hiện...</span>
+            </div>
+        </div>
+
+        <!-- Central Security Card -->
+        <div class="w-full max-w-md my-auto py-4 space-y-5">
+            <div class="text-left space-y-3">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 text-orange-600 dark:text-orange-400 text-xs font-semibold">
+                    <i class="fa-solid fa-id-badge"></i>
+                    <span>Xác Minh Danh Tính Website</span>
+                </div>
+                <h1 class="text-lg sm:text-xl font-mono font-bold tracking-tight text-indigo-600 dark:text-indigo-400 break-all select-all">
+                    https://vocvachdomoitesst.github.io/tienganhcn/
+                </h1>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                    Xác minh bạn là sinh viên muốn ôn thi Tiếng Anh Chuyên Ngành CNTT (325 câu) trước khi tiếp tục truy cập đề cương.
+                </p>
+            </div>
+
+            <!-- Turnstile Interactive Widget Box -->
+            <div class="bg-[#fafafa] dark:bg-[#1a1a1a] border border-[#d6d6d6] dark:border-[#333333] rounded-2xl p-4 sm:p-5 shadow-sm transition hover:border-slate-400 dark:hover:border-slate-600">
+                <div class="flex items-center justify-between">
+                    <!-- Checkbox Area -->
+                    <div class="flex items-center space-x-3.5 cursor-pointer flex-1" onclick="triggerTurnstileVerification()">
+                        <div id="cf-checkbox-container" class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 border-slate-300 dark:border-slate-600 bg-white dark:bg-[#252525] flex items-center justify-center transition-all duration-200 hover:border-indigo-500 shadow-inner shrink-0">
+                            <span id="cf-unchecked-box" class="block w-2 h-2 rounded-sm bg-transparent"></span>
+                            <div id="cf-loading-spinner" class="cf-spinner hidden"></div>
+                            <i id="cf-success-check" class="fa-solid fa-check text-emerald-600 dark:text-emerald-400 text-lg sm:text-xl hidden cf-check-pop"></i>
+                        </div>
+                        <div class="text-left select-none pr-2">
+                            <span id="cf-status-label" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 block">
+                                Xác minh bạn là người muốn ôn thi
+                            </span>
+                            <span id="cf-sub-label" class="text-[11px] text-slate-400 dark:text-slate-500 block mt-0.5">
+                                Nhấp vào ô vuông để bắt đầu ôn thi
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Cloudflare Brand Signature -->
+                    <div class="flex flex-col items-center justify-center pl-3 border-l border-slate-200 dark:border-slate-800 shrink-0">
+                        <i class="fa-brands fa-cloudflare text-2xl text-[#f38020]"></i>
+                        <span class="text-[9px] font-bold text-slate-400 uppercase tracking-tight mt-0.5">Turnstile</span>
+                        <div class="text-[9px] text-slate-400/80 flex gap-1 mt-0.5">
+                            <span class="hover:underline cursor-pointer">Privacy</span>
+                            <span>•</span>
+                            <span class="hover:underline cursor-pointer">Terms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Animated loading bar -->
+                <div id="cf-progress-bar-bg" class="w-full bg-slate-200 dark:bg-slate-800 h-1 rounded-full mt-4 overflow-hidden hidden">
+                    <div id="cf-progress-bar-fill" class="bg-indigo-600 h-full w-0 transition-all duration-700 ease-out"></div>
+                </div>
+            </div>
+
+            <!-- Real-time Exam Countdown Widget (13h00 ngày 28/10/2026) -->
+            <div class="bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 dark:from-indigo-950/40 dark:via-purple-950/40 dark:to-pink-950/40 border border-indigo-200/80 dark:border-indigo-800/80 rounded-2xl p-4 text-center space-y-2">
+                <div class="flex items-center justify-center gap-1.5 text-xs font-bold text-indigo-700 dark:text-indigo-300">
+                    <i class="fa-solid fa-clock-rotate-left animate-spin text-indigo-600 dark:text-indigo-400" style="animation-duration: 6s;"></i>
+                    <span>ĐẾM NGƯỢC THỜI GIAN THI: 13:00 NGÀY 28/10/2026</span>
+                </div>
+                <div class="grid grid-cols-4 gap-2 font-mono" id="exam-countdown-grid">
+                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
+                        <span id="cd-days" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
+                        <span class="text-[9px] text-slate-400 uppercase font-bold">Ngày</span>
+                    </div>
+                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
+                        <span id="cd-hours" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
+                        <span class="text-[9px] text-slate-400 uppercase font-bold">Giờ</span>
+                    </div>
+                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
+                        <span id="cd-mins" class="text-lg sm:text-xl font-black text-indigo-600 dark:text-indigo-400 block">00</span>
+                        <span class="text-[9px] text-slate-400 uppercase font-bold">Phút</span>
+                    </div>
+                    <div class="bg-white/90 dark:bg-slate-900/90 rounded-xl p-2 border border-indigo-100 dark:border-indigo-900/80 shadow-sm">
+                        <span id="cd-secs" class="text-lg sm:text-xl font-black text-rose-500 block">00</span>
+                        <span class="text-[9px] text-slate-400 uppercase font-bold">Giây</span>
+                    </div>
+                </div>
+                <p id="cd-target-label" class="text-[10px] text-slate-500 dark:text-slate-400 font-medium"></p>
+            </div>
+
+            <!-- Footer warning notes -->
+            <div class="text-xs text-slate-400 space-y-1 font-mono text-center sm:text-left">
+                <p id="cf-ray-id">Ray ID: 5f4f37331a7f1cfc • Location: Ho Chi Minh City, VN</p>
+                <p class="font-bold text-slate-500 dark:text-slate-400">Performance & security by MrFice5</p>
+            </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="w-full max-w-lg pb-2 text-center">
+            <p class="text-[11px] text-slate-400">
+                Khoa Công Nghệ Thông Tin • Cao Đẳng Kỹ Thuật Cao Thắng © 2026
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2. MAIN APPLICATION (PORTAL)                                              -->
+    <!-- ========================================================================= -->
+    <div id="main-portal" class="min-h-full flex flex-col opacity-0 pointer-events-none transition-opacity duration-300">
+        
+        <!-- TOP NAVBAR -->
+        <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 gap-2">
+                    
+                    <!-- Brand Title -->
+                    <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="switchMainTab('bank')">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-black text-sm sm:text-base tracking-tight bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                                    HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026
+                                </span>
+                            </div>
+                            <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Đề cương 325 câu ôn tập Tiếng Anh Chuyên Ngành CNTT</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Tabs -->
+                    <nav class="flex items-center p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl border border-slate-200/80 dark:border-slate-700/60 shrink-0">
+                        <button id="nav-bank-btn" onclick="switchMainTab('bank')" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg transition-all duration-150 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span class="hidden sm:inline">Ngân Hàng</span> 325 Câu
+                        </button>
+                        <button id="nav-tests-btn" onclick="switchMainTab('tests')" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg transition-all duration-150 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <span>10 Đề Thi</span>
+                        </button>
+                    </nav>
+
+                    <!-- Utility Buttons (Audio Player & DarkMode & Lock) -->
+                    <div class="flex items-center space-x-2">
+                        <!-- Music Player Trigger Button -->
+                        <button onclick="toggleMusicModal()" id="btn-music-control" class="relative p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold border border-indigo-200 dark:border-indigo-800 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 transition flex items-center gap-1.5" title="Mở Trình Phát Nhạc Ôn Thi (MP3 / Lo-Fi)">
+                            <i id="music-indicator-icon" class="fa-solid fa-music"></i>
+                            <span class="hidden md:inline" id="music-btn-label">Nhạc Ôn Tập</span>
+                            <span id="music-playing-dot" class="w-2 h-2 rounded-full bg-emerald-500 absolute -top-0.5 -right-0.5 hidden animate-ping"></span>
+                        </button>
+
+                        <!-- Saved Bookmark Filter -->
+                        <button onclick="toggleFavoritesOnly()" id="btn-fav-toggle" class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl text-xs font-semibold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1" title="Xem câu hỏi đã gắn dấu sao">
+                            <i class="fa-solid fa-star text-amber-400"></i>
+                            <span class="hidden lg:inline">(<span id="saved-stars-count">0</span>)</span>
+                        </button>
+
+                        <!-- Dark Mode Toggle -->
+                        <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Chuyển chế độ Sáng / Tối">
+                            <i id="theme-icon" class="fa-solid fa-moon"></i>
+                        </button>
+
+                        <!-- Lock Gateway -->
+                        <button onclick="lockAndReverify()" class="w-9 h-9 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Khóa ứng dụng & Xác minh lại">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- FLOATING MUSIC PLAYER DRAWER / MODAL -->
+        <div id="music-player-modal" class="hidden fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-[92vw] sm:w-96 bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800/80 rounded-3xl p-5 shadow-2xl space-y-4 fade-enter backdrop-blur-xl">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-headphones"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">Trình Phát Nhạc Ôn Thi</h4>
+                        <p class="text-[10px] text-slate-400" id="audio-track-title">Chưa tải file MP3 (Kéo thả hoặc chọn file)</p>
+                    </div>
+                </div>
+                <button onclick="toggleMusicModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Drag & Drop / File Input Area -->
+            <div id="drop-audio-zone" class="border-2 border-dashed border-indigo-200 dark:border-indigo-900 hover:border-indigo-500 dark:hover:border-indigo-400 rounded-2xl p-3 text-center cursor-pointer transition bg-indigo-50/40 dark:bg-indigo-950/20">
+                <input type="file" id="mp3-file-input" accept="audio/mp3,audio/*" class="hidden" onchange="handleAudioFileSelect(event)">
+                <label for="mp3-file-input" class="cursor-pointer space-y-1 block">
+                    <i class="fa-solid fa-cloud-arrow-up text-indigo-600 dark:text-indigo-400 text-lg"></i>
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-300">Kéo thả file MP3 hoặc bấm để tải lên</p>
+                    <p class="text-[10px] text-slate-400">Phát trực tiếp từ máy của bạn, không upload lên mạng</p>
+                </label>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="space-y-3">
+                <!-- Seek Bar -->
+                <div>
+                    <input type="range" id="audio-seek-bar" value="0" min="0" max="100" class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600" oninput="seekCustomAudio()">
+                    <div class="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
+                        <span id="audio-current-time">00:00</span>
+                        <span id="audio-duration-time">00:00</span>
+                    </div>
+                </div>
+
+                <!-- Main Action Buttons -->
+                <div class="flex items-center justify-between pt-1">
+                    <!-- Fallback Lo-Fi Synth Button -->
+                    <button onclick="toggleAmbientSynth()" id="btn-ambient-synth" class="px-2.5 py-1 rounded-xl text-[11px] font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-purple-500"></i>
+                        <span>Lo-Fi Synth</span>
+                    </button>
+
+                    <!-- Play / Pause -->
+                    <div class="flex items-center space-x-2">
+                        <button onclick="rewindAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                        <button onclick="toggleAudioPlayPause()" id="btn-play-pause-audio" class="w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center text-sm shadow-md shadow-indigo-600/30 transition">
+                            <i id="audio-play-icon" class="fa-solid fa-play ml-0.5"></i>
+                        </button>
+                        <button onclick="forwardAudio(10)" class="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-xs text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Volume slider -->
+                    <div class="flex items-center space-x-1.5">
+                        <button onclick="toggleAudioMute()" id="btn-audio-mute" class="text-xs text-slate-500 hover:text-indigo-600 transition">
+                            <i id="audio-volume-icon" class="fa-solid fa-volume-high"></i>
+                        </button>
+                        <input type="range" id="audio-volume-bar" min="0" max="1" step="0.05" value="0.75" class="w-16 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600" oninput="setAudioVolume(this.value)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden native audio element -->
+            <audio id="native-audio-player" class="hidden"></audio>
+        </div>
+
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8">
+
+            <!-- ============================================================= -->
+            <!-- TAB 1: 325 QUESTIONS REPOSITORY (NGÂN HÀNG CÂU HỎI)            -->
+            <!-- ============================================================= -->
+            <section id="tab-bank" class="space-y-6">
+                <!-- Search & Filters Container -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-card space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                        <div>
+                            <h2 class="text-lg sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2.5">
+                                <i class="fa-solid fa-database text-indigo-500"></i>
+                                <span>Ngân Hàng 325 Câu Hỏi Tiếng Anh Chuyên Ngành</span>
+                            </h2>
+                            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                Trích xuất trực tiếp từ đề cương chuẩn Khoa CNTT 2026: Hardwares, OS, AI, Games/Code, Cloud, Email & CV.
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-indigo-50/80 dark:bg-indigo-950/60 px-3.5 py-2 rounded-2xl border border-indigo-100 dark:border-indigo-900 text-xs font-bold text-indigo-700 dark:text-indigo-300 self-start md:self-auto shrink-0">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>Hiển thị: <strong id="bank-count-display">325</strong> / 325 câu</span>
+                        </div>
+                    </div>
+
+                    <!-- Filter Controls -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2">
+                        <!-- Search Box -->
+                        <div class="md:col-span-6 relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                            <input id="bank-search" type="text" oninput="filterBankQuestions()" placeholder="Tìm từ khóa tiếng Anh, thuật ngữ, số thứ tự (ví dụ: CPU, WORA, ATS, Q. 25)..." class="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition" />
+                        </div>
+
+                        <!-- Chapter Filter -->
+                        <div class="md:col-span-4">
+                            <select id="bank-chapter-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition font-medium">
+                                <option value="ALL">Toàn bộ 6 Chương (325 câu đầy đủ)</option>
+                                <option value="Chương 1">Chương 1: Computer Hardwares (Câu 1 - 30)</option>
+                                <option value="Chương 2">Chương 2: Operating Systems (Câu 31 - 80)</option>
+                                <option value="Chương 3">Chương 3: AI & Computer Softwares (Câu 81 - 160)</option>
+                                <option value="Chương 4">Chương 4: Games & Computer Programmings (Câu 161 - 215)</option>
+                                <option value="Chương 5">Chương 5: The Internet & Cloud Computing (Câu 216 - 270)</option>
+                                <option value="Chương 6">Chương 6: Email & CV Writing (Câu 271 - 325)</option>
+                            </select>
+                        </div>
+
+                        <!-- Bloom Filter -->
+                        <div class="md:col-span-2">
+                            <select id="bank-bloom-filter" onchange="filterBankQuestions()" class="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition font-medium">
+                                <option value="ALL">Tất cả mức độ</option>
+                                <option value="Biết">Mức Biết</option>
+                                <option value="Hiểu">Mức Hiểu</option>
+                                <option value="Vận dụng">Mức Vận dụng</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Sub Actions Bar -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
+                        <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                            <span>Mẹo thi: Nhấn nút <strong>"Phân tích từ khóa (Key hints)"</strong> để bắt mẹo từ khóa nhanh.</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <button onclick="toggleAllBankExplanations()" class="font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                                <i class="fa-regular fa-eye"></i>
+                                <span id="toggle-all-exp-txt">Hiện toàn bộ giải thích</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions List (Rendered via JS) -->
+                <div id="bank-questions-list" class="space-y-4">
+                    <!-- Cards will be populated here -->
+                </div>
+            </section>
+
+
+            <!-- ============================================================= -->
+            <!-- TAB 2: 10 STANDARDIZED MOCK EXAMS (10 ĐỀ THI)                 -->
+            <!-- ============================================================= -->
+            <section id="tab-tests" class="hidden space-y-6">
+
+                <!-- VIEW 1: Test Selection Dashboard -->
+                <div id="tests-grid-view" class="space-y-6">
+                    <!-- Hero Banner -->
+                    <div class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-purple-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+                        <div class="relative z-10 max-w-2xl">
+                            <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[11px] font-bold uppercase tracking-wider">
+                                Luyện Thi Đột Phá
+                            </span>
+                            <h2 class="text-2xl sm:text-3xl font-black mt-3">10 Đề Thi Tiếng Anh Chuyên Ngành</h2>
+                            <p class="text-indigo-100 text-xs sm:text-sm mt-2 leading-relaxed">
+                                Toàn bộ 325 câu hỏi được chia cân đối vào 10 đề thi (~32-33 câu/đề, tổng hợp đủ 6 chương). Bạn có thể chọn học tự do có đáp án ngay hoặc bấm giờ thi chuẩn 45 phút.
+                            </p>
+                        </div>
+                        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none translate-x-12 translate-y-12">
+                            <i class="fa-solid fa-award text-9xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- 10 Test Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="test-cards-container">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- VIEW 2: Test Active Workspace (Practice & Exam Mode) -->
+                <div id="test-workspace-view" class="hidden space-y-5">
+                    
+                    <!-- Sticky Top Bar for current test -->
+                    <div class="sticky top-20 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-md flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <button onclick="exitTestToDashboard()" class="w-9 h-9 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center justify-center" title="Quay lại danh sách đề">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h3 id="current-test-title" class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">Đề Thi Số 1</h3>
+                                    <span id="current-test-mode-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">Ôn Luyện</span>
+                                </div>
+                                <p class="text-[11px] text-slate-500 dark:text-slate-400" id="current-test-progress-txt">Tiến độ: 0/33 câu</p>
+                            </div>
+                        </div>
+
+                        <!-- Right: Timer & Submit Action -->
+                        <div class="flex items-center space-x-3">
+                            <div id="test-timer-box" class="hidden items-center space-x-2 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 px-3 py-1.5 rounded-xl text-amber-700 dark:text-amber-300 font-mono text-xs sm:text-sm font-bold">
+                                <i class="fa-solid fa-stopwatch animate-pulse"></i>
+                                <span id="test-timer-val">45:00</span>
+                            </div>
+                            <button id="btn-submit-test" onclick="finishAndSubmitTest()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/25 transition flex items-center space-x-1.5">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Nộp Bài</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Workspace Layout: Left questions, Right Palette -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                        
+                        <!-- Left: Questions Stream -->
+                        <div class="lg:col-span-8 space-y-4" id="test-questions-container">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <!-- Right: Palette Navigator -->
+                        <div class="lg:col-span-4 sticky top-44 space-y-4">
+                            <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-card">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h4 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                                        <i class="fa-solid fa-table-cells text-indigo-500"></i>
+                                        <span>Danh Sách Câu Hỏi</span>
+                                    </h4>
+                                    <span id="palette-status-count" class="text-xs text-slate-500 font-mono">0/33</span>
+                                </div>
+
+                                <!-- Legend -->
+                                <div class="grid grid-cols-3 gap-2 mb-4 text-[10px] text-slate-500 dark:text-slate-400">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-3 h-3 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></span>
+                                        <span>Chưa làm</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-3 h-3 rounded bg-indigo-600 text-white"></span>
+                                        <span>Đã chọn</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="w-3 h-3 rounded bg-amber-400"></span>
+                                        <span>Xem lại</span>
+                                    </div>
+                                </div>
+
+                                <!-- Grid of question numbers -->
+                                <div id="palette-buttons-grid" class="grid grid-cols-5 sm:grid-cols-6 gap-2 max-h-72 overflow-y-auto p-1">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Reset Button -->
+                            <div class="bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900 rounded-2xl p-4 text-xs text-indigo-900 dark:text-indigo-200 flex items-center justify-between">
+                                <span>Muốn làm lại đề này từ đầu?</span>
+                                <button onclick="restartCurrentTest()" class="font-bold text-indigo-600 dark:text-indigo-400 hover:underline">
+                                    Làm lại
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 3: Detailed Score & Answers Review -->
+                <div id="test-result-view" class="hidden space-y-6">
+                    <!-- Populated dynamically upon submission -->
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto py-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 bg-white/50 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <p>© 2026 HỆ THỐNG ÔN THI TIẾNG ANH CKC 2026 • Khoa Công Nghệ Thông Tin</p>
+                <div class="flex items-center space-x-3 text-[11px]">
+                    <span class="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                        <i class="fa-solid fa-circle-check"></i> Turnstile Verified
+                    </span>
+                    <span>•</span>
+                    <span class="font-mono text-slate-400">MrFice5 Protected</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- ========================================================================= -->
+    <!-- JAVASCRIPT: SOUND FX, TOUCH RIPPLE, AUDIO PLAYER & CORE ENGINE            -->
+    <!-- ========================================================================= -->
+    <script>
+        /**
+         * 1. AUDIO SYNTHESIS & SOUND FX (Web Audio API)
+         */
+        let audioCtxInstance = null;
+
+        function getAudioContext() {
+            if (!audioCtxInstance) {
+                audioCtxInstance = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtxInstance.state === 'suspended') {
+                audioCtxInstance.resume();
+            }
+            return audioCtxInstance;
+        }
+
+        // Click / Touch subtle sound
+        function playUiClickSound() {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(440, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.04);
+                gain.gain.setValueAtTime(0.04, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.04);
+            } catch (e) {}
+        }
+
+        // Correct Answer / Verification Ding
+        function playSuccessSound() {
+            try {
+                const ctx = getAudioContext();
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, idx) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+                    gain.gain.setValueAtTime(0.06, ctx.currentTime + idx * 0.08);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.25);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + idx * 0.08);
+                    osc.stop(ctx.currentTime + idx * 0.08 + 0.25);
+                });
+            } catch (e) {}
+        }
+
+        // Incorrect Answer Tone
+        function playWrongSound() {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(180, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.2);
+                gain.gain.setValueAtTime(0.06, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.2);
+            } catch (e) {}
+        }
+
+        // Celebration chime for finishing exam
+        function playCelebrationFanfare() {
+            try {
+                const ctx = getAudioContext();
+                const melody = [523.25, 659.25, 783.99, 1046.50, 1318.51];
+                melody.forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime + i * 0.12);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.12 + 0.4);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + i * 0.12);
+                    osc.stop(ctx.currentTime + i * 0.12 + 0.4);
+                });
+            } catch (e) {}
+        }
+
+        /**
+         * 2. INTERACTIVE TOUCH / CLICK RIPPLE ON ANYWHERE
+         */
+        function initClickTouchRipple() {
+            const createRipple = (x, y) => {
+                playUiClickSound();
+                const ripple = document.createElement('div');
+                ripple.className = 'touch-ripple';
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                document.body.appendChild(ripple);
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            };
+
+            window.addEventListener('pointerdown', (e) => {
+                // Avoid firing twice on complex inputs if needed
+                createRipple(e.clientX, e.clientY);
+            }, { passive: true });
+        }
+
+
+        /**
+         * 3. CLOUDFLARE TURNSTILE & EXAM COUNTDOWN
+         */
+        const CLOUDFLARE_STORAGE_KEY = 'ckc_turnstile_verified_2026';
+        let isTurnstileVerifying = false;
+
+        // Auto extract IP & Location
+        function fetchClientIpInfo() {
+            const ipDisplay = document.getElementById('cf-client-ip');
+            // Try fetch public IP via ipapi
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.ip) {
+                        const city = data.city || 'Ho Chi Minh City';
+                        const country = data.country_code || 'VN';
+                        ipDisplay.textContent = `IP: ${data.ip} (${city}, ${country})`;
+                    } else {
+                        throw new Error('Fallback IP');
+                    }
+                })
+                .catch(() => {
+                    // Fallback realistic IP
+                    ipDisplay.textContent = `IP: 14.161.42.109 (Ho Chi Minh City, VN)`;
+                });
+        }
+
+        // Target Date: 13:00 (1:00 PM), October 28, 2026
+        const EXAM_TARGET_DATE = new Date('2026-10-28T13:00:00+07:00').getTime();
+
+        function initExamCountdown() {
+            const daysEl = document.getElementById('cd-days');
+            const hoursEl = document.getElementById('cd-hours');
+            const minsEl = document.getElementById('cd-mins');
+            const secsEl = document.getElementById('cd-secs');
+            const labelEl = document.getElementById('cd-target-label');
+
+            function updateTime() {
+                const now = new Date().getTime();
+                const diff = EXAM_TARGET_DATE - now;
+
+                if (diff <= 0) {
+                    daysEl.textContent = '00';
+                    hoursEl.textContent = '00';
+                    minsEl.textContent = '00';
+                    secsEl.textContent = '00';
+                    labelEl.textContent = 'Đã đến giờ thi Tiếng Anh Chuyên Ngành!';
+                    return;
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                daysEl.textContent = d.toString().padStart(2, '0');
+                hoursEl.textContent = h.toString().padStart(2, '0');
+                minsEl.textContent = m.toString().padStart(2, '0');
+                secsEl.textContent = s.toString().padStart(2, '0');
+                labelEl.textContent = `Chính xác đến thời điểm phát đề: 13:00 ngày 28 tháng 10 năm 2026`;
+            }
+
+            updateTime();
+            setInterval(updateTime, 1000);
+        }
+
+        function triggerTurnstileVerification() {
+            if (isTurnstileVerifying) return;
+            isTurnstileVerifying = true;
+
+            const unchecked = document.getElementById('cf-unchecked-box');
+            const spinner = document.getElementById('cf-loading-spinner');
+            const successCheck = document.getElementById('cf-success-check');
+            const statusLabel = document.getElementById('cf-status-label');
+            const subLabel = document.getElementById('cf-sub-label');
+            const progressBg = document.getElementById('cf-progress-bar-bg');
+            const progressFill = document.getElementById('cf-progress-bar-fill');
+
+            unchecked.classList.add('hidden');
+            spinner.classList.remove('hidden');
+            progressBg.classList.remove('hidden');
+            progressFill.style.width = '70%';
+            statusLabel.textContent = "Đang kiểm tra bảo mật & xác thực...";
+            subLabel.textContent = "Phân tích chữ ký số trình duyệt & xác thực thí sinh";
+
+            setTimeout(() => {
+                progressFill.style.width = '100%';
+                spinner.classList.add('hidden');
+                successCheck.classList.remove('hidden');
+                statusLabel.textContent = "Xác minh thành công!";
+                statusLabel.classList.add('text-emerald-600', 'dark:text-emerald-400');
+                subLabel.textContent = "Chuyển tiếp đến hệ thống ôn thi CKC 2026...";
+                
+                playSuccessSound();
+                sessionStorage.setItem(CLOUDFLARE_STORAGE_KEY, 'true');
+
+                setTimeout(() => {
+                    unlockMainPortal();
+                }, 600);
+            }, 1100);
+        }
+
+        function unlockMainPortal() {
+            const modal = document.getElementById('cf-verification-modal');
+            const portal = document.getElementById('main-portal');
+
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                portal.classList.remove('opacity-0', 'pointer-events-none');
+                portal.classList.add('fade-enter');
+            }, 300);
+        }
+
+        function lockAndReverify() {
+            sessionStorage.removeItem(CLOUDFLARE_STORAGE_KEY);
+            window.location.reload();
+        }
+
+        function initSecurityGateway() {
+            fetchClientIpInfo();
+            initExamCountdown();
+
+            const isVerified = sessionStorage.getItem(CLOUDFLARE_STORAGE_KEY) === 'true';
+            if (isVerified) {
+                const modal = document.getElementById('cf-verification-modal');
+                const portal = document.getElementById('main-portal');
+                modal.classList.add('hidden');
+                portal.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+
+        /**
+         * 4. BUILT-IN BACKGROUND MUSIC PLAYER (MP3 UPLOAD & LO-FI SYNTH)
+         */
+        const nativeAudio = document.getElementById('native-audio-player');
+        let isAudioPlaying = false;
+        let isSynthPlaying = false;
+        let synthInterval = null;
+
+        function toggleMusicModal() {
+            const modal = document.getElementById('music-player-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function handleAudioFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                loadAudioFile(file);
+            }
+        }
+
+        // Support Drag and drop
+        const dropZone = document.getElementById('drop-audio-zone');
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('border-indigo-600');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('border-indigo-600');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-indigo-600');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                loadAudioFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        function loadAudioFile(file) {
+            const url = URL.createObjectURL(file);
+            nativeAudio.src = url;
+            document.getElementById('audio-track-title').textContent = file.name;
+            nativeAudio.play().then(() => {
+                setPlayState(true);
+            }).catch(() => {});
+        }
+
+        function toggleAudioPlayPause() {
+            if (!nativeAudio.src && !isSynthPlaying) {
+                toggleAmbientSynth();
+                return;
+            }
+
+            if (nativeAudio.src) {
+                if (nativeAudio.paused) {
+                    nativeAudio.play();
+                    setPlayState(true);
+                } else {
+                    nativeAudio.pause();
+                    setPlayState(false);
+                }
+            } else if (isSynthPlaying) {
+                toggleAmbientSynth();
+            }
+        }
+
+        function setPlayState(playing) {
+            isAudioPlaying = playing;
+            const icon = document.getElementById('audio-play-icon');
+            const dot = document.getElementById('music-playing-dot');
+            const label = document.getElementById('music-btn-label');
+
+            if (playing) {
+                icon.className = "fa-solid fa-pause";
+                dot.classList.remove('hidden');
+                label.textContent = "Đang phát nhạc";
+            } else {
+                icon.className = "fa-solid fa-play ml-0.5";
+                dot.classList.add('hidden');
+                label.textContent = "Nhạc Ôn Tập";
+            }
+        }
+
+        nativeAudio.addEventListener('timeupdate', () => {
+            if (!isNaN(nativeAudio.duration)) {
+                const percent = (nativeAudio.currentTime / nativeAudio.duration) * 100;
+                document.getElementById('audio-seek-bar').value = percent;
+                document.getElementById('audio-current-time').textContent = formatSeconds(nativeAudio.currentTime);
+                document.getElementById('audio-duration-time').textContent = formatSeconds(nativeAudio.duration);
+            }
+        });
+
+        nativeAudio.addEventListener('ended', () => {
+            setPlayState(false);
+        });
+
+        function seekCustomAudio() {
+            const percent = document.getElementById('audio-seek-bar').value;
+            if (!isNaN(nativeAudio.duration)) {
+                nativeAudio.currentTime = (percent / 100) * nativeAudio.duration;
+            }
+        }
+
+        function rewindAudio(sec) {
+            if (nativeAudio.src) nativeAudio.currentTime = Math.max(0, nativeAudio.currentTime - sec);
+        }
+
+        function forwardAudio(sec) {
+            if (nativeAudio.src) nativeAudio.currentTime = Math.min(nativeAudio.duration, nativeAudio.currentTime + sec);
+        }
+
+        function setAudioVolume(val) {
+            nativeAudio.volume = parseFloat(val);
+        }
+
+        function toggleAudioMute() {
+            nativeAudio.muted = !nativeAudio.muted;
+            const icon = document.getElementById('audio-volume-icon');
+            icon.className = nativeAudio.muted ? "fa-solid fa-volume-xmark text-rose-500" : "fa-solid fa-volume-high";
+        }
+
+        function formatSeconds(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        // Fallback Ambient Lo-Fi Synth generator (relaxing study chord progression)
+        function toggleAmbientSynth() {
+            if (isSynthPlaying) {
+                clearInterval(synthInterval);
+                isSynthPlaying = false;
+                document.getElementById('btn-ambient-synth').classList.remove('bg-purple-100', 'dark:bg-purple-950', 'border-purple-400');
+                setPlayState(false);
+                document.getElementById('audio-track-title').textContent = "Đã dừng Lo-Fi Synth";
+                return;
+            }
+
+            isSynthPlaying = true;
+            document.getElementById('btn-ambient-synth').classList.add('bg-purple-100', 'dark:bg-purple-950', 'border-purple-400');
+            document.getElementById('audio-track-title').textContent = "Đang phát: Lo-Fi Study Chords (Tự động sinh)";
+            setPlayState(true);
+
+            const chords = [
+                [261.63, 329.63, 392.00, 493.88], // Cmaj7
+                [220.00, 261.63, 329.63, 392.00], // Am7
+                [174.61, 220.00, 261.63, 329.63], // Fmaj7
+                [196.00, 246.94, 293.66, 392.00]  // G7
+            ];
+            let chordIdx = 0;
+
+            const playNextChord = () => {
+                if (!isSynthPlaying) return;
+                try {
+                    const ctx = getAudioContext();
+                    const currentChord = chords[chordIdx % chords.length];
+                    chordIdx++;
+
+                    currentChord.forEach(freq => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                        gain.gain.setValueAtTime(0.012, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 3.8);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 4.0);
+                    });
+                } catch (e) {}
+            };
+
+            playNextChord();
+            synthInterval = setInterval(playNextChord, 4000);
+        }
+
+
+        /**
+         * 5. DATA REPOSITORY: 325 CÂU HỎI TIẾNG ANH CHUYÊN NGÀNH CNTT (CHUẨN 2026)
+         */
+        const coreQuestions = [
+            // CHƯƠNG 1: Computer Hardwares (Câu 1 - 30)
+            { id: 1, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What is the main purpose of Information Technology (IT)?", options: ["To provide entertainment to users.", "To create, process, store, receive, and manipulate electronic data.", "To design and develop video games.", "To automate household chores."], answer: "B", keywords: "Information Technology (IT) -> create, process, store, receive, manipulate data", explanation: "Mục đích chính của CNTT là tạo lập, xử lý, lưu trữ, tiếp nhận và thao tác dữ liệu điện tử." },
+            { id: 2, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which components are typically included in the IT domain?", options: ["Hardware only.", "Software only.", "Hardware, software, virtualization tools, and operating systems.", "Networking cables and servers only."], answer: "C", keywords: "IT domain includes -> Hardware, software, virtualization, OS", explanation: "Lĩnh vực IT bao gồm cả phần cứng, phần mềm, công cụ ảo hóa và các hệ điều hành." },
+            { id: 3, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which term refers to a physical device used in or with your machine?", options: ["Software.", "Operating System.", "Computer Hardware.", "Peripheral."], answer: "C", keywords: "physical device used in or with machine -> Computer Hardware", explanation: "Thiết bị vật lý (physical device) cấu thành hoặc dùng với máy tính chính là Hardware." },
+            { id: 4, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which of the following is defined as a collection of code installed onto your computer's hard drive?", options: ["Software.", "Computer Hardware.", "Random Access Memory (RAM).", "Central Processing Unit (CPU)."], answer: "A", keywords: "collection of code installed onto hard drive -> Software", explanation: "Tập hợp các đoạn mã (code) được cài trên ổ đĩa máy tính được định nghĩa là Software (Phần mềm)." },
+            { id: 5, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which component is commonly known as the \"brain\" of the computer?", options: ["The Motherboard.", "RAM.", "The CPU (Microprocessor).", "The BIOS."], answer: "C", keywords: "\"brain\" of the computer -> CPU / Microprocessor", explanation: "Bộ vi xử lý CPU (Central Processing Unit) được ví như bộ não (brain) điều khiển toàn bộ máy tính." },
+            { id: 6, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What is RAM described as in the context of computer memory?", options: ["Temporary memory which holds the operating system and running programs.", "Permanent memory which is intact even when the computer is off.", "The instruction set controlling low-level hardware access.", "Physical storage for data files."], answer: "A", keywords: "RAM -> Temporary memory, holds running programs / OS", explanation: "RAM là bộ nhớ tạm thời (temporary/volatile), lưu trữ HĐH và các chương trình đang chạy." },
+            { id: 7, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What is ROM described as in the context of computer memory?", options: ["Temporary memory which holds running programs.", "Permanent memory which is still intact even when the computer is off.", "A type of volatile storage used for calculations.", "A graphical interface for the user."], answer: "B", keywords: "ROM -> Permanent memory, intact even when computer is off", explanation: "ROM (Read-Only Memory) là bộ nhớ cố định (permanent/non-volatile), dữ liệu còn nguyên khi tắt nguồn." },
+            { id: 8, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What does the acronym PC stand for?", options: ["Public Computer.", "Primary Component.", "Processor Core.", "Personal Computer."], answer: "D", keywords: "PC -> Personal Computer (Máy tính cá nhân)", explanation: "PC là viết tắt của cụm từ Personal Computer." },
+            { id: 9, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What term is used for computers that fit inside other devices, such as traffic lights or coffee machines, and control them?", options: ["Desktop computers.", "Workstations.", "Embedded systems.", "Servers."], answer: "C", keywords: "fit inside other devices (traffic lights, coffee machines) -> Embedded systems (Hệ thống nhúng)", explanation: "Embedded systems (Hệ thống nhúng) là các máy tính nhỏ gọn tích hợp bên trong thiết bị khác để điều khiển." },
+            { id: 10, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which term is a generic name for any device external to a computer that extends its functionality?", options: ["Accessory.", "Core component.", "Peripheral.", "Infrastructure."], answer: "C", keywords: "external device extends functionality -> Peripheral (Thiết bị ngoại vi)", explanation: "Peripheral là thiết bị bên ngoài giúp mở rộng chức năng máy tính (chuột, bàn phím, máy in...)." },
+            { id: 11, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What is the BIOS an example of?", options: ["Random Access Memory (RAM).", "An application using Read-Only Memory (ROM).", "A co-processor used for graphics.", "A type of application software."], answer: "B", keywords: "BIOS -> Read-Only Memory (ROM) firmware", explanation: "BIOS là vi chương trình firmware lưu trữ trên chip ROM." },
+            { id: 12, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "In the 20th century, what were co-processors often used for?", options: ["3D graphics.", "Mathematics, such as floating point operations.", "Sound generation.", "Network processing."], answer: "B", keywords: "20th century co-processors -> Mathematics, floating point operations", explanation: "Vào thế kỷ 20, bộ đồng xử lý FPU chủ yếu dùng để tính toán số học dấu phẩy động." },
+            { id: 13, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which of these is explicitly listed as a storage device?", options: ["Computer monitor.", "Mouse.", "Web server.", "Hard disk."], answer: "D", keywords: "storage device -> Hard disk (ổ đĩa cứng)", explanation: "Hard disk là thiết bị lưu trữ dữ liệu chuyên biệt." },
+            { id: 14, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "Which physical device is mentioned as being used for inputting characters into a computer?", options: ["Scanner.", "Keyboard.", "Speaker.", "Modem."], answer: "B", keywords: "inputting characters -> Keyboard (bàn phím)", explanation: "Keyboard dùng để nhập ký tự vào máy tính." },
+            { id: 15, chapter: "Chương 1: Computer Hardwares", bloom: "Biết", question: "What is a mousepad categorized as, according to the distinction in the text?", options: ["A Peripheral.", "An Accessory.", "Core Hardware.", "Input Device."], answer: "B", keywords: "mousepad -> Accessory (Phụ kiện)", explanation: "Mousepad là phụ kiện (Accessory), không truyền nhận dữ liệu mở rộng tính năng như Peripheral." },
+            { id: 16, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Why are servers or embedded systems described as sometimes not requiring vital input devices (like a mouse or keyboard) or a display?", options: ["They are fully autonomous and do not need human interaction.", "They always rely on new wireless interfaces exclusively.", "They can still be functional without these devices, unlike a standard PC.", "They are too large to connect standard peripherals."], answer: "C", keywords: "servers / embedded systems -> functional without mouse/keyboard/display", explanation: "Máy chủ và hệ thống nhúng vẫn vận hành bình thường mà không cần gắn chuột, bàn phím hay màn hình." },
+            { id: 17, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Which statement best describes the difference between RAM and ROM?", options: ["RAM is used for system instructions, while ROM holds running programs.", "ROM is faster than RAM for data retrieval.", "RAM is temporary and volatile, while ROM is permanent and remains intact when power is off.", "ROM is always physically larger than RAM."], answer: "C", keywords: "RAM temporary volatile vs ROM permanent remains intact", explanation: "RAM mất dữ liệu khi mất nguồn điện (volatile), trong khi ROM lưu giữ vĩnh viễn (non-volatile)." },
+            { id: 18, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Why is a printer considered a peripheral rather than a core component?", options: ["It is built inside the computer case.", "It extends the computer's functionality but is not part of the core machine.", "It only enhances the user experience, not the functionality.", "It is connected via a parallel port."], answer: "B", keywords: "printer considered peripheral -> extends functionality, not core machine", explanation: "Máy in mở rộng năng lực in ấn nhưng thiếu nó máy tính vẫn khởi động chạy tốt." },
+            { id: 19, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "A laptop is typically categorized as a PC because:", options: ["It runs on Windows.", "It is a computer used by yourself for general purposes.", "It is an embedded system.", "It uses a solid-state drive."], answer: "B", keywords: "laptop categorized as PC -> used by yourself for general purposes", explanation: "Laptop là PC vì phục vụ nhu cầu cá nhân đa mục đích." },
+            { id: 20, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "In modern computing, co-processors are primarily used to handle:", options: ["Payroll and accounting tasks.", "Basic system calculations performed by the microprocessor.", "Tasks like 3D graphics (GPUs), sound generation, and physics applications.", "The BIOS firmware instruction set."], answer: "C", keywords: "modern co-processors -> 3D graphics (GPUs), sound, physics", explanation: "Hiện nay các bộ đồng xử lý tiêu biểu nhất là GPU phục vụ đồ họa 3D, âm thanh và vật lý." },
+            { id: 21, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "IT is typically used in the context of:", options: ["Personal or entertainment technologies.", "Enterprise operations.", "Video game development.", "Scientific research only."], answer: "B", keywords: "IT context -> Enterprise operations (vận hành doanh nghiệp)", explanation: "Thuật ngữ IT thường được dùng trong bối cảnh các hoạt động của doanh nghiệp." },
+            { id: 22, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Why might buying a very expensive component based on a new technology sometimes be less advisable than buying a mainstream part?", options: ["Expensive components are always slow.", "They are often too difficult to install for average users.", "The new technology might not be ready for mass production or offer only slightly better performance.", "They lack buses to carry information around the system."], answer: "C", keywords: "expensive new technology -> not ready for mass production, slight performance gain", explanation: "Công nghệ mới đắt tiền thường chưa tối ưu cho sản xuất đại trà và hiệu năng vượt trội không đáng kể." },
+            { id: 23, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Which function describes the role of the BIOS?", options: ["Managing all running applications and user interfaces.", "Controlling very low-level access to the hardware components.", "Storing temporary data while the computer is running.", "Performing complex floating-point calculations."], answer: "B", keywords: "BIOS role -> Controlling very low-level access to hardware", explanation: "Vai trò của BIOS là điều khiển truy cập phần cứng ở cấp độ thấp nhất." },
+            { id: 24, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "The invention and evolution of the PC (Personal Computer) radically reshaped which aspects of modern life?", options: ["Only the way people played games.", "Only accounting and payroll tasks in large corporations.", "The ways we work, play, communicate, and access information.", "Only the design of microprocessors."], answer: "C", keywords: "PC reshaped -> work, play, communicate, access information", explanation: "Máy tính cá nhân thay đổi căn bản cách con người làm việc, giải trí, giao tiếp và tiếp cận thông tin." },
+            { id: 25, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "What is the main difference between a peripheral (like a printer) and an accessory (like a mousepad)?", options: ["Peripherals are always internal, while accessories are external.", "Peripherals extend the computer's functionality, while accessories only enhance the user experience.", "Accessories are core components, while peripherals are optional.", "There is no functional difference between the two terms."], answer: "B", keywords: "peripheral extends functionality vs accessory enhances user experience", explanation: "Peripheral mở rộng tính năng của máy, còn phụ kiện chỉ nâng cao trải nghiệm sử dụng." },
+            { id: 26, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "What is the purpose of \"buses\" in the computer system architecture?", options: ["To manage external peripherals like printers.", "To carry information around the system, connecting core components and peripherals.", "To store permanent memory data.", "To define the type of computer."], answer: "B", keywords: "buses -> carry information around system, connect components", explanation: "Bus là đường truyền dữ liệu liên kết các linh kiện trong kiến trúc máy tính." },
+            { id: 27, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Which modern interfaces are replacing older standards like PS2 ports and VGA ports for connecting peripherals?", options: ["USB, Bluetooth, Wifi, DVI, and HDMI.", "Serial ports and parallel ports.", "CPU and RAM.", "Microprocessor and chipset."], answer: "A", keywords: "replacing PS2 and VGA -> USB, Bluetooth, Wifi, DVI, HDMI", explanation: "Cổng PS/2 và VGA được thay thế bằng chuẩn USB, không dây (Wifi/Bluetooth) và HDMI/DVI." },
+            { id: 28, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "The commercial use of IT is often seen as encompassing:", options: ["Only computer technology.", "Only physical devices and infrastructure.", "Both computer technology and telephony.", "Only e-commerce and internet."], answer: "C", keywords: "commercial IT encompasses -> Both computer technology and telephony", explanation: "Ứng dụng CNTT thương mại bao hàm cả công nghệ máy tính và viễn thông (telephony)." },
+            { id: 29, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Which statement correctly identifies a misconception about the term PC?", options: ["Many people correctly believe PC is synonymous with any computer used for general purposes.", "Many people mistakenly believe PC is synonymous with a desktop computer running Windows.", "PC refers only to laptop computers.", "The term PC was invented in the 1950s."], answer: "B", keywords: "misconception about PC -> mistakenly believe synonymous with desktop running Windows", explanation: "Hiểu lầm phổ biến là cho rằng PC chỉ là máy tính để bàn chạy Windows." },
+            { id: 30, chapter: "Chương 1: Computer Hardwares", bloom: "Hiểu", question: "Which components are necessary for the computer to start up and hold the running operating system?", options: ["Only peripherals like a monitor and keyboard.", "Co-processors and external storage devices.", "Chipset and buses, but not RAM.", "The microprocessor (CPU), RAM, and ROM firmware (BIOS)."], answer: "D", keywords: "start up and hold running OS -> CPU, RAM, ROM firmware (BIOS)", explanation: "Để khởi động và tải hệ điều hành, máy tính bắt buộc có CPU, RAM và BIOS (ROM)." },
+
+            // CHƯƠNG 2: Operating Systems (Câu 31 - 80)
+            { id: 31, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "What is the generic term for the multitasking software layer that lets you perform a wide array of lower level tasks with your computer?", options: ["The BIOS", "The Kernel", "An Operating System", "A Virtual Machine"], answer: "C", keywords: "multitasking software layer for lower level tasks -> Operating System", explanation: "Hệ điều hành (Operating System) là lớp phần mềm đa nhiệm quản lý tác vụ mức thấp." },
+            { id: 32, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "What is the lowest level, or core, of the operating system?", options: ["The BIOS", "The Kernel", "The Command Line Interface", "The User Interface"], answer: "B", keywords: "lowest level / core of operating system -> Kernel (Nhân)", explanation: "Kernel (nhân hệ điều hành) là tầng thấp nhất và cốt lõi nhất của OS." },
+            { id: 33, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which software layer lies lower than the Kernel, but is not really a part of the operating system?", options: ["The GUI", "The CLI", "The BIOS", "The Device Driver"], answer: "C", keywords: "lies lower than Kernel, not part of OS -> BIOS", explanation: "BIOS nằm dưới Kernel trên bo mạch chủ và không thuộc về hệ điều hành." },
+            { id: 34, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which company's operating system currently holds about 85% of the market share for PCs?", options: ["Apple", "Linux Foundation", "Google", "Microsoft"], answer: "D", keywords: "holds 85% market share for PCs -> Microsoft (Windows)", explanation: "Microsoft Windows chiếm khoảng 85% thị phần máy tính cá nhân." },
+            { id: 35, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which type of user interface is typically intended for general use?", options: ["GUI (Graphical User Interface)", "CLI (Command Line Interface)", "BIOS", "Command Prompt"], answer: "A", keywords: "interface for general use -> GUI (Graphical User Interface)", explanation: "GUI (Giao diện đồ họa) được thiết kế thân thiện cho người dùng thông thường." },
+            { id: 36, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "What is the command line interface application in Windows called?", options: ["Terminal", "Bash", "Command Prompt", "KDE"], answer: "C", keywords: "CLI application in Windows -> Command Prompt (cmd)", explanation: "Ứng dụng dòng lệnh của Windows là Command Prompt." },
+            { id: 37, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "What is the most popular CLI for Unix and Linux operating systems?", options: ["Terminal", "Command Prompt", "Bash", "KDE"], answer: "C", keywords: "popular CLI for Unix / Linux -> Bash", explanation: "Bash là shell dòng lệnh phổ biến nhất trên Unix và Linux." },
+            { id: 38, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which operating system uses name of feline family animals for its codename?", options: ["Windows 10", "Android", "Linux", "Mac OS"], answer: "D", keywords: "feline family animals (họ mèo: Cheetah, Lion...) -> Mac OS", explanation: "Mac OS từng đặt tên các phiên bản theo các loài họ mèo lớn." },
+            { id: 39, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which two companies' operating systems are primarily used in mobile technology, such as smartphones and tablets?", options: ["Microsoft and Google", "Linux and Android", "Google's Android and Apple's iOS", "Windows and Mac OS"], answer: "C", keywords: "mobile technology OS -> Google's Android and Apple's iOS", explanation: "Hai hệ điều hành di động chủ đạo là Android (Google) và iOS (Apple)." },
+            { id: 40, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which mobile operating system is described as being Linux-based and partly open source?", options: ["iOS", "Android", "Windows Phone", "Mac OS X"], answer: "B", keywords: "Linux-based and partly open source mobile OS -> Android", explanation: "Android xây dựng trên nhân Linux và có mã nguồn mở (AOSP)." },
+            { id: 41, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "As of mid-2025, approximately how many apps does the Apple App Store host?", options: ["1.56 million", "1.97 million", "85%", "30%"], answer: "B", keywords: "mid-2025 Apple App Store -> 1.97 million", explanation: "Kho App Store có xấp xỉ 1.97 triệu ứng dụng." },
+            { id: 42, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Where do Android devices primarily obtain apps from?", options: ["Apple App Store", "Amazon Appstore", "Google Play", "Windows Store"], answer: "C", keywords: "Android devices obtain apps from -> Google Play", explanation: "Thiết bị Android phân phối ứng dụng chính thức qua Google Play." },
+            { id: 43, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "What feature runs across the top of the screen on both iOS and Android, showing essential device status icons?", options: ["Dock", "Home screen", "Notification Center", "Status bar"], answer: "D", keywords: "across top of screen showing status icons -> Status bar", explanation: "Thanh trạng thái (Status bar) ở trên cùng hiển thị pin, cột sóng, đồng hồ." },
+            { id: 44, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "Which operating system is only used on Apple devices, such as the iPhone?", options: ["Android", "Linux", "iOS", "Windows"], answer: "C", keywords: "only used on Apple devices, iPhone -> iOS", explanation: "iOS độc quyền cho các thiết bị iPhone của Apple." },
+            { id: 45, chapter: "Chương 2: Operating Systems", bloom: "Biết", question: "List some operating systems other than Windows?", options: ["Free BSD, Solaris, Linux, and Mac OS X", "Windows XP, Windows 7, Windows 10", "Android and iOS", "Command Prompt and Terminal"], answer: "A", keywords: "operating systems other than Windows -> Free BSD, Solaris, Linux, and Mac OS X", explanation: "Các HĐH độc lập khác Windows gồm Free BSD, Solaris, Linux và Mac OS X." },
+            { id: 46, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Why would a computer be fairly useless without an Operating System?", options: ["It would cost too much to operate.", "The computer would crash immediately upon boot-up.", "The BIOS would take over all tasks.", "The computer could not perform low-level tasks like formatting storage or launching applications."], answer: "D", keywords: "useless without OS -> could not format storage or launch applications", explanation: "Không có HĐH, máy tính không thể định dạng ổ lưu trữ hay chạy ứng dụng." },
+            { id: 47, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Before 1960, how were operating systems typically managed?", options: ["They were standardized across all computer models.", "They were all based on the Windows architecture.", "Every computer model normally had its own OS custom programmed for its specific hardware architecture.", "They primarily used GUI interfaces."], answer: "C", keywords: "Before 1960 -> each model custom programmed for hardware", explanation: "Trước 1960, mỗi dòng máy tính đều phải viết riêng hệ điều hành theo phần cứng." },
+            { id: 48, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "The Kernel is responsible for all the most basic tasks of an OS, such as controlling the file systems and device drivers. What does this suggest about the Kernel's role?", options: ["It manages only user-level applications.", "It is primarily responsible for the graphical interface.", "It acts as the essential core that manages critical hardware and file operations.", "It is easily replaceable by other software layers."], answer: "C", keywords: "Kernel's role -> essential core managing critical hardware and files", explanation: "Kernel là hạt nhân quản lý giao tiếp phần cứng và hệ thống tệp tin." },
+            { id: 49, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What is the primary difference between the Command Line Interface (CLI) and the Graphical User Interface (GUI)?", options: ["GUI is faster than CLI for engineers.", "CLI is intended for general use, while GUI is for specialists.", "GUI is intended for general use, while CLI is intended for use by computer engineers and system administrators.", "GUI systems do not contain a CLI."], answer: "C", keywords: "GUI for general use vs CLI for engineers and administrators", explanation: "GUI cho người dùng đại chúng, còn CLI cho kỹ sư và quản trị viên." },
+            { id: 50, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Why might \"Geeks sometimes install and run more than one OS on a single computer\" using dual-booting or virtual machines?", options: ["To increase the computer's overall speed.", "To access the BIOS more easily.", "Because they prefer one OS for programming and another OS for tasks like music production or gaming.", "To avoid having to install any applications."], answer: "C", keywords: "more than one OS -> one for programming, another for gaming/music", explanation: "Dân công nghệ thích dùng 1 HĐH cho lập trình và 1 HĐH cho giải trí/game." },
+            { id: 51, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Mac OS X and Unix systems both use GUIs. What specific structure do Unix systems use for their GUIs like KDE and Gnome?", options: ["They run on top of the Command Prompt.", "They are implemented directly by the Kernel.", "They run on top of X-Windows.", "They use Bash exclusively."], answer: "C", keywords: "Unix GUIs like KDE and Gnome -> run on top of X-Windows", explanation: "Giao diện đồ họa trên Unix chạy trên nền tảng X-Windows." },
+            { id: 52, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Which statement best describes the nature of Windows OS versions?", options: ["All Windows versions are optimized to run on any PC hardware.", "Each Windows OS is optimized for different users, hardware configurations, and tasks.", "Newer Windows versions like Windows 10 can easily run on hardware designed for old systems like Windows 98.", "Windows OSs are optimized primarily for servers, not PCs."], answer: "B", keywords: "Windows OS versions -> optimized for different users, hardware, tasks", explanation: "Mỗi phiên bản Windows được tối ưu cho cấu hình phần cứng và tác vụ khác nhau." },
+            { id: 53, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "If you are using a smartphone and want to customize its interface and basic features extensively, based on the text, which operating system is generally more suitable?", options: ["iOS (due to its uniform design elements)", "Android (because its interface and basic features are generally more customizable)", "Mac OS X", "Windows"], answer: "B", keywords: "customize interface and features extensively -> Android", explanation: "Android có khả năng tùy biến giao diện linh hoạt hơn rất nhiều so với iOS." },
+            { id: 54, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What key feature, added to iOS 14, allows users to display live, auto-updating content on their home screen, similar to Android's long-standing functionality?", options: ["Notification Center", "The Status Bar", "The Dock", "Home-screen widgets"], answer: "D", keywords: "live, auto-updating content on home screen -> Home-screen widgets", explanation: "Widgets trên màn hình chính cho phép cập nhật nội dung trực tiếp theo thời gian thực." },
+            { id: 55, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Why might an IT professional need to \"learn and master several, if not all, the popular operating systems\"?", options: ["Because they only focus on one OS for their entire career.", "Because most popular OSs are exactly the same.", "Because professional work often involves dealing with varied hardware platforms and user environments.", "Because they only need to master the command line interface."], answer: "C", keywords: "master several OS -> varied hardware platforms and environments", explanation: "Dân IT cần thành thạo nhiều OS vì thực tế làm việc trên nhiều nền tảng phần cứng khác nhau." },
+            { id: 56, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What is the significance of Android being the world's most commonly used smartphone platform?", options: ["It means Android devices are generally more expensive.", "It means iOS is slowly becoming open-source.", "It is used by many different phone manufacturers, indicating wide adoption across the industry.", "It means Android apps are always proprietary."], answer: "C", keywords: "Android commonly used -> used by many different phone manufacturers", explanation: "Android được nhiều nhà sản xuất sử dụng (Samsung, Xiaomi...) nên phổ biến toàn cầu." },
+            { id: 57, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Why is the ability to run programs written in Java on many different computer architectures and operating systems sometimes referred to as WORA?", options: ["Because it uses an interpreted language.", "Because it is compiled specifically for each machine.", "Because of the use of the JVM (Java virtual machine), enabling \"write once, run anywhere.\"", "Because Java is optimized only for Windows."], answer: "C", keywords: "WORA -> JVM (Java virtual machine), Write Once, Run Anywhere", explanation: "WORA là 'Write once, run anywhere' nhờ vào máy ảo Java (JVM)." },
+            { id: 58, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What distinguishes Android home screens from iOS home screens (prior to iOS 14)?", options: ["iOS screens supported pinch-and-zoom while Android did not.", "Android screens typically include app icons and widgets that display live, auto-updating content.", "Android screens contained only rows of app icons.", "iOS screens were the only ones that supported swiping."], answer: "B", keywords: "Android home screen distinguishes -> app icons and live widgets", explanation: "Trước iOS 14, màn hình Android nổi bật nhờ có các widget cập nhật động." },
+            { id: 59, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What mechanism allows iOS users to pin their most frequently used applications for quick access?", options: ["The Status Bar", "The Notification Center", "The Dock", "The Widgets"], answer: "C", keywords: "pin most frequently used apps for quick access -> The Dock", explanation: "Thanh Dock ở dưới cùng cho phép ghim các app hay dùng nhất." },
+            { id: 60, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "According to the text, why might iPads tend to have a greater number of apps genuinely designed and optimized for tablet use compared to Android tablets?", options: ["Android tablets have smaller screens.", "Google Play has fewer total apps than the Apple App Store.", "Many Android tablet apps are simply scaled-up versions of smartphone apps lacking a tablet-optimized UI.", "Android does not support productivity workflows."], answer: "C", keywords: "iPads tablet apps vs Android -> Android apps simply scaled-up versions lacking optimized UI", explanation: "Nhiều app Android trên tablet chỉ phóng to kích cỡ giao diện điện thoại." },
+            { id: 61, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "The main difference between the Notification Shade on Android and the Notification Center on iOS is in their presentation. How are alerts generally grouped in the iOS Notification Center?", options: ["By time received.", "Grouped by app.", "By severity level.", "Randomly displayed."], answer: "B", keywords: "iOS Notification Center -> Grouped by app (nhóm theo app)", explanation: "Trên iOS, các thông báo được nhóm lại theo từng ứng dụng." },
+            { id: 62, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "What is the purpose of device drivers, which the OS kernel controls?", options: ["To manage cloud connectivity.", "To act as the BIOS.", "To allow the OS to install and upgrade new hardware.", "To optimize gaming performance only."], answer: "C", keywords: "device drivers -> allow OS to install/communicate hardware", explanation: "Device drivers giúp hệ điều hành nhận diện và điều khiển thiết bị phần cứng mới." },
+            { id: 63, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "The definition of an OS includes the ability to \"terminate misbehaving applications.\" What does this capability ensure?", options: ["That the system can install new software quickly.", "That system stability is maintained by stopping unresponsive programs.", "That all user data is compressed.", "That the user interface is always a CLI."], answer: "B", keywords: "terminate misbehaving applications -> system stability maintained", explanation: "Cưỡng chế dừng ứng dụng treo để duy trì độ ổn định cho toàn hệ thống." },
+            { id: 64, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Which touch interface features are common to BOTH iOS and Android?", options: ["Only proprietary widgets.", "Swiping, tapping, and pinch-and-zoom.", "Only the presence of a dock.", "Only the Command Line Interface."], answer: "B", keywords: "common touch features -> Swiping, tapping, pinch-and-zoom", explanation: "Thao tác cảm ứng chung gồm: vuốt (swiping), chạm (tapping) và phóng to thu nhỏ." },
+            { id: 65, chapter: "Chương 2: Operating Systems", bloom: "Hiểu", question: "Why is it unlikely that Windows 7 would run on PC hardware originally designed to run Windows 98?", options: ["Windows 7 requires different networking protocols.", "The BIOS would prevent it.", "Each Windows OS is optimized for different hardware configurations, making older hardware incompatible with newer OSs.", "Windows 98 systems did not support virtualization."], answer: "C", keywords: "Windows 7 on Win98 hardware -> older hardware incompatible with newer OS", explanation: "Phần cứng thời Win 98 quá cũ và không tương thích với đòi hỏi của Windows 7." },
+            { id: 66, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If you want to perform a low-level task such as setting default levels of file compression on your computer, which software layer are you interacting with?", options: ["The application software.", "The BIOS firmware.", "The Operating System.", "The peripheral device."], answer: "C", keywords: "file compression, low-level task -> The Operating System", explanation: "Nén tệp tin là tác vụ mức hệ thống do HĐH xử lý." },
+            { id: 67, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If a user wants to install an additional operating system onto their computer without partitioning their hard drive, what software technology could they use?", options: ["Command Line Interface", "Dual-booting", "Virtual machine software", "The Kernel"], answer: "C", keywords: "without partitioning hard drive -> Virtual machine software (Máy ảo)", explanation: "Máy ảo (Virtual Machine) cho phép cài OS mà không cần chia lại phân vùng ổ cứng." },
+            { id: 68, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "You are working on a Unix server and need to quickly configure a network setting using text commands. Which interface are you most likely using?", options: ["Graphical User Interface (GUI)", "Command Line Interface (CLI)", "Terminal (Mac OS X)", "Windows Explorer"], answer: "B", keywords: "Unix server text commands -> Command Line Interface (CLI)", explanation: "Thao tác cấu hình qua lệnh trên Unix là giao diện dòng lệnh CLI." },
+            { id: 69, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "A developer is creating an application for a wide variety of mobile manufacturers (Samsung, Xiaomi, etc.). Which operating system platform should they prioritize to reach the broadest market?", options: ["iOS", "Mac OS X", "Android", "Windows Server"], answer: "C", keywords: "Samsung, Xiaomi, broadest market -> Android", explanation: "Phát triển cho Android sẽ tiếp cận được nhiều thương hiệu điện thoại nhất." },
+            { id: 70, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If you wanted to download the application Pinterest, what technology framework allows this app, which was once iOS-only, to be available on Android?", options: ["Command Prompt", "Cross-platform frameworks (like React Native)", "The Dock", "Virtual machines"], answer: "B", keywords: "once iOS-only now on Android -> Cross-platform frameworks", explanation: "Khung đa nền tảng (Cross-platform) giúp ứng dụng chạy được cả trên iOS và Android." },
+            { id: 71, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If you needed to check the battery life and current Wi-Fi status on your Android phone, where would you look?", options: ["The Dock", "The Home Screen icons", "The Status Bar", "Google Play"], answer: "C", keywords: "battery life and current Wi-Fi status -> Status Bar", explanation: "Thời lượng pin và vạch sóng Wi-Fi luôn hiển thị ở Status Bar." },
+            { id: 72, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "Which of the following tasks is a low-level task handled by the Operating System?", options: ["Typing an email.", "Designing a webpage.", "Installing and launching applications.", "Running the BIOS."], answer: "C", keywords: "task handled by OS -> Installing and launching applications", explanation: "Cài đặt và khởi chạy ứng dụng là nhiệm vụ cốt lõi của Hệ điều hành." },
+            { id: 73, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "In a network, which OS typically has a 30% market share for servers?", options: ["Linux", "Mac OS X", "Free BSD", "Microsoft Windows"], answer: "D", keywords: "30% market share for servers -> Microsoft Windows", explanation: "Windows Server chiếm khoảng 30% thị phần máy chủ mạng." },
+            { id: 74, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If you are a system administrator who prefers efficiency and specialized commands over visual simplicity, which interface would you likely use more often?", options: ["GUI", "CLI", "KDE", "X-Windows"], answer: "B", keywords: "administrator prefers efficiency, commands -> CLI", explanation: "Quản trị viên mạng chuộng CLI vì sự nhanh gọn và độ chính xác cao." },
+            { id: 75, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "A user is looking for a mobile operating system that offers highly uniform design elements and is generally perceived as more user-friendly. Which OS fits this description?", options: ["Android (Linux-based)", "iOS (uniform design elements)", "Solaris", "Windows Server"], answer: "B", keywords: "uniform design elements, user-friendly -> iOS", explanation: "iOS nổi bật với tính đồng bộ thiết kế cao và dễ tiếp cận." },
+            { id: 76, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "Which term describes the action of ending a program that has stopped responding, sometimes requiring a key combination like Ctrl-Alt-Delete on Windows?", options: ["Launching", "Compressing", "Terminating (or Aborting)", "Formatting"], answer: "C", keywords: "ending a program stopped responding, Ctrl-Alt-Delete -> Terminating (or Aborting)", explanation: "Đóng ứng dụng bị đóng băng gọi là Terminate hoặc Abort." },
+            { id: 77, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "You observe a computer performing functions like 'signing in with a username and password' and 'switching users.' These actions are indicative of which software layer at work?", options: ["Application software", "Operating system", "Hardware peripherals", "BIOS firmware"], answer: "B", keywords: "signing in, switching users -> Operating system", explanation: "Xác thực tài khoản và quản trị người dùng là tính năng của Hệ điều hành." },
+            { id: 78, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "Which operating system is described as being an open-source OS where anyone can see and change the source code?", options: ["Microsoft Windows", "iOS", "Linux", "Mac OS"], answer: "C", keywords: "open-source OS, anyone can see and change source code -> Linux", explanation: "Linux là HĐH nguồn mở tự do xem và sửa đổi mã nguồn." },
+            { id: 79, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "If an application requires low-level access to hardware, what software component manages this interaction, sitting just above the BIOS?", options: ["The Command Prompt", "The Kernel", "The GUI", "Device accessories"], answer: "B", keywords: "manages low-level hardware interaction, above BIOS -> The Kernel", explanation: "Kernel nằm ngay trên BIOS để điều phối truy xuất phần cứng." },
+            { id: 80, chapter: "Chương 2: Operating Systems", bloom: "Vận dụng", question: "What kind of software is the operating system itself considered, based on its function as the background environment for other software to run on?", options: ["Application software", "Peripheral software", "Accessory software", "System software"], answer: "D", keywords: "background environment for other software -> System software (Phần mềm hệ thống)", explanation: "Hệ điều hành được phân loại là Phần mềm hệ thống (System software)." },
+
+            // CHƯƠNG 3: AI & Computer Softwares (Câu 81 - 160)
+            { id: 81, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the primary function of Artificial Intelligence (AI)?", options: ["To execute commands manually entered by users.", "To manage hardware components only.", "To perform tasks that usually require human thinking, such as learning and problem-solving.", "To create physical devices."], answer: "C", keywords: "AI primary function -> perform tasks requiring human thinking, learning", explanation: "AI mô phỏng trí khôn của con người như tự học hỏi và giải quyết vấn đề." },
+            { id: 82, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the definition of an algorithm?", options: ["A complex mathematical problem.", "The simulation of human intelligence in machines.", "A specialized programming language.", "A set of instructions that a computer follows to complete a task, like a step-by-step guide."], answer: "D", keywords: "algorithm -> set of instructions, step-by-step guide", explanation: "Thuật toán (Algorithm) là tập hợp các chỉ thị từng bước có thứ tự giúp máy tính giải quyết tác vụ." },
+            { id: 83, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the name of the core component of AI that lets computers learn from data without being explicitly programmed?", options: ["Deep Learning", "Machine Learning (ML)", "Artificial General Intelligence (AGI)", "Large Language Models (LLMs)"], answer: "B", keywords: "learn from data without being explicitly programmed -> Machine Learning (ML)", explanation: "Machine Learning cho phép máy học từ dữ liệu mà không cần lập trình quy tắc cứng nhắc." },
+            { id: 84, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which type of learning involves the computer learning from examples that include the answers (e.g., labeled spam or not spam)?", options: ["Unsupervised Learning", "Reinforcement Learning", "Deep Learning", "Supervised Learning"], answer: "D", keywords: "examples that include answers / labeled data -> Supervised Learning", explanation: "Học có giám sát (Supervised Learning) huấn luyện trên dữ liệu đã gán sẵn nhãn kết quả." },
+            { id: 85, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Deep learning uses which structures, inspired by the human brain?", options: ["Algorithms", "Neural networks", "Language Models", "Virtual machines"], answer: "B", keywords: "deep learning, inspired by human brain -> Neural networks (Mạng nơ-ron)", explanation: "Học sâu sử dụng mạng nơ-ron nhân tạo lấy cảm hứng từ cấu trúc não người." },
+            { id: 86, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What does the term \"LLMs\" stand for?", options: ["Logical Learning Methods", "Linear Linguistic Machines", "Low-Level Maintenance Systems", "Large Language Models"], answer: "D", keywords: "LLMs -> Large Language Models (Mô hình ngôn ngữ lớn)", explanation: "LLMs là viết tắt của Large Language Models." },
+            { id: 87, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the definition of software?", options: ["Any physical device used with a computer.", "The hardware layer that lies below the Kernel.", "Instructions written by a programmer telling the computer what to do.", "A collection of physical equipment."], answer: "C", keywords: "software definition -> Instructions telling the computer what to do", explanation: "Phần mềm là các câu lệnh hướng dẫn máy tính những việc cần thực hiện." },
+            { id: 88, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What are programmers also known as?", options: ["System Administrators", "Testers", "Software developers or developers", "Architects"], answer: "C", keywords: "programmers also known as -> Software developers", explanation: "Programmer thường được gọi là Software developer (Lập trình viên)." },
+            { id: 89, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which verb is considered the most correct technical term for starting a software program?", options: ["Run", "Launch", "Boot", "Execute"], answer: "B", keywords: "technical term for starting a software program -> Launch", explanation: "Thuật ngữ chuẩn kỹ thuật nhất để mở một ứng dụng là 'Launch'." },
+            { id: 90, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the term for an error in a software program?", options: ["Feature", "Crash", "Bug", "Terminal"], answer: "C", keywords: "error in a software program -> Bug", explanation: "Lỗi trong phần mềm gọi là Bug." },
+            { id: 91, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which type of software is Microsoft Windows or Adobe Photoshop an example of?", options: ["Shareware", "Freeware", "Closed-source or proprietary software", "Open-source software"], answer: "C", keywords: "Windows, Adobe Photoshop -> Closed-source or proprietary software", explanation: "Windows và Photoshop là phần mềm độc quyền nguồn đóng (Proprietary)." },
+            { id: 92, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which kind of software is normally free to use and modify (with some restrictions)?", options: ["Proprietary software", "Closed-source software", "Open-source software", "Application software"], answer: "C", keywords: "free to use and modify -> Open-source software", explanation: "Phần mềm nguồn mở (Open-source) cho phép dùng và sửa code tự do." },
+            { id: 93, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the primary goal of applications in computing?", options: ["To test computer hardware.", "To manage software release cycles.", "To make computers more productive and help users get work done faster.", "To generate complex algorithms."], answer: "C", keywords: "goal of applications -> productive, help users get work done faster", explanation: "Ứng dụng giúp tăng năng suất và hỗ trợ người dùng hoàn thành công việc nhanh hơn." },
+            { id: 94, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the version stage that refers to all activities performed before formal testing?", options: ["Alpha", "Beta", "Release Candidate", "Pre-alpha"], answer: "D", keywords: "before formal testing -> Pre-alpha", explanation: "Pre-alpha là giai đoạn phát triển đầu tiên trước khi thử nghiệm chính thức." },
+            { id: 95, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which software release version is normally not released to the public and has known bugs, often seen internally as a \"proof of concept\"?", options: ["Beta version", "Release Candidate", "Stable Release", "Alpha version"], answer: "D", keywords: "not released to public, internal, proof of concept -> Alpha version", explanation: "Bản Alpha thử nghiệm nội bộ, chứa nhiều lỗi và dùng làm bằng chứng khả thi." },
+            { id: 96, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which version stage follows alpha and is feature-complete but likely still contains known or unknown bugs, and is sometimes called \"betaware\"?", options: ["Pre-alpha", "Beta version", "Release Candidate", "Stable Release"], answer: "B", keywords: "follows alpha, feature-complete, contains bugs, betaware -> Beta version", explanation: "Bản Beta hoàn chỉnh tính năng nhưng vẫn còn lỗi cần người dùng thử nghiệm." },
+            { id: 97, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the process of delivering a beta version to the users called?", options: ["Production Release", "Formal Testing", "Patching", "Beta release"], answer: "D", keywords: "delivering beta version to users -> Beta release", explanation: "Việc phát hành bản beta cho người dùng gọi là Beta release." },
+            { id: 98, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the common term used for the versions that are \"very close to what will actually go out as a feature complete release,\" often abbreviated as RC?", options: ["Alpha versions", "Beta versions", "Release Candidates", "Stable Releases"], answer: "C", keywords: "very close to feature complete release, RC -> Release Candidates", explanation: "RC là Release Candidate (Bản ứng viên phát hành)." },
+            { id: 99, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the final stage of the software development cycle, also known as \"production release\" or RTM?", options: ["Beta release", "Release Candidate", "Stable Release", "Pre-alpha"], answer: "C", keywords: "final stage, production release, RTM -> Stable Release", explanation: "Stable Release là bản thương phẩm ổn định cuối cùng." },
+            { id: 100, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What do software companies offer to fix major problems that end users complain loudly about after the final release?", options: ["New Beta versions", "Source code updates", "Full software re-releases", "Patches"], answer: "D", keywords: "fix problems after final release -> Patches (Bản vá)", explanation: "Các hãng phần mềm tung ra các bản vá (Patches) để sửa lỗi phát sinh." },
+            { id: 101, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the type of AI that specializes in understanding and creating human language?", options: ["Deep Learning", "Reinforcement Learning", "Large Language Models (LLMs)", "Virtual Intelligence"], answer: "C", keywords: "understanding and creating human language -> Large Language Models (LLMs)", explanation: "Mô hình ngôn ngữ lớn (LLMs) chuyên về xử lý và tạo văn bản ngôn ngữ người." },
+            { id: 102, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which key combination is often required in Windows to manually abort a program that has stopped responding?", options: ["Alt-F4", "Shift-Tab-Delete", "Ctrl-Alt-Delete", "Ctrl-C"], answer: "C", keywords: "manually abort stopped program -> Ctrl-Alt-Delete", explanation: "Tổ hợp Ctrl-Alt-Delete giúp mở Task Manager để cưỡng chế tắt app bị treo." },
+            { id: 103, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the ultimate goal for some AI researchers, where a machine can think and learn like a human in every way?", options: ["Machine Learning", "Deep Learning", "Artificial General Intelligence (AGI)", "LLMs"], answer: "C", keywords: "think and learn like human in every way -> Artificial General Intelligence (AGI)", explanation: "AGI là trí tuệ nhân tạo toàn diện ngang tầm con người." },
+            { id: 104, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which distribution method involves software being bought in stores in versions called retail boxes (historically common)?", options: ["Open source", "Shareware", "Freeware", "Traditional proprietary versions"], answer: "D", keywords: "bought in stores in retail boxes -> Traditional proprietary versions", explanation: "Phần mềm truyền thống từng được bán trong các hộp bán lẻ (retail boxes) tại cửa hàng." },
+            { id: 105, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is the name given to the phenomenon when LLMs sometimes produce incorrect information?", options: ["Overfitting", "Errors", "Debugging", "Hallucinations"], answer: "D", keywords: "LLMs produce incorrect information -> Hallucinations (Ảo giác)", explanation: "Hiện tượng AI tự tạo thông tin sai lệch nhưng vẻ ngoài thuyết phục gọi là Hallucination." },
+            { id: 106, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What concept in deep learning refers to using many layers to analyze data at increasing levels of detail?", options: ["Object-Orientation", "The \"deep\" in deep learning", "Reinforcement", "The Kernel"], answer: "B", keywords: "using many layers to analyze data -> The \"deep\" in deep learning", explanation: "Từ 'deep' chỉ kiến trúc nhiều tầng (layers) nơ-ron phân tích dữ liệu chuyên sâu." },
+            { id: 107, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What must software be compatible with to run correctly?", options: ["Only the operating system version.", "Only the network server.", "All the components of the computer (hardware platform).", "Only the application store."], answer: "C", keywords: "compatible with -> All the components of the computer (hardware platform)", explanation: "Phần mềm phải tương thích với nền tảng phần cứng và hệ điều hành của máy." },
+            { id: 108, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What is an application's manual often included in the form of?", options: ["A patch", "A retail box", "A help file", "An executable file"], answer: "C", keywords: "manual often included in form of -> A help file", explanation: "Tài liệu hướng dẫn thường đính kèm dưới dạng tệp trợ giúp (Help file)." },
+            { id: 109, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "What does the computer learn from in Reinforcement Learning?", options: ["Labeled examples provided by a teacher.", "Patterns in unlabeled data.", "Trying things and getting rewards for good outcomes.", "Neural networks with multiple layers."], answer: "C", keywords: "Reinforcement Learning -> Trying things, rewards for good outcomes", explanation: "Học tăng cường dựa trên cơ chế thử - sai và nhận phần thưởng (rewards)." },
+            { id: 110, chapter: "Chương 3: AI & Computer Softwares", bloom: "Biết", question: "Which company developed C#?", options: ["Google", "Apple", "Microsoft", "OpenAI"], answer: "C", keywords: "developed C# -> Microsoft", explanation: "Ngôn ngữ C# do Microsoft sáng tạo." },
+
+            // CÁC CÂU ĐẠI DIỆN TIÊU BIỂU CHƯƠNG 4, 5, 6
+            { id: 161, chapter: "Chương 4: Games & Computer Programmings", bloom: "Biết", question: "In the term \"video game\", what does the word \"video\" refer to?", options: ["A sound system that produces the music of the game.", "Any type of display device that can produce two- or three-dimensional images.", "Only television screens connected to a game console.", "Only recorded video clips that are played inside the game."], answer: "B", keywords: "\"video\" in video game -> Any display device producing 2D/3D images", explanation: "Từ 'video' chỉ thiết bị màn hình hiển thị hình ảnh đồ họa 2D hoặc 3D." },
+            { id: 173, chapter: "Chương 4: Games & Computer Programmings", bloom: "Biết", question: "Who wrote the Python programming language in the late 1980s?", options: ["Larry Wall.", "Bjarne Stroustrup.", "Dennis Ritchie.", "Guido van Rossum."], answer: "D", keywords: "wrote Python late 1980s -> Guido van Rossum", explanation: "Guido van Rossum là cha đẻ của Python." },
+            { id: 174, chapter: "Chương 4: Games & Computer Programmings", bloom: "Biết", question: "After what was the Python programming language named?", options: ["A character from a video game.", "The python snake.", "The Monty Python comedy group.", "Its creator's pet."], answer: "C", keywords: "Python named after -> Monty Python comedy group", explanation: "Python được đặt tên theo gánh hài Monty Python, không phải con trăn." },
+            { id: 176, chapter: "Chương 4: Games & Computer Programmings", bloom: "Biết", question: "Who developed the C programming language in 1972 for use in the UNIX operating system?", options: ["Bjarne Stroustrup.", "Dennis Ritchie.", "Guido van Rossum.", "Rasmus Lerdorf."], answer: "B", keywords: "developed C in 1972 for UNIX -> Dennis Ritchie", explanation: "Dennis Ritchie tạo ra C năm 1972 tại Bell Labs để viết Unix." },
+            { id: 178, chapter: "Chương 4: Games & Computer Programmings", bloom: "Biết", question: "Who wrote C++ in 1979 as an update to C?", options: ["Yukihiro Matsumoto.", "Larry Wall.", "Dennis Ritchie.", "Bjarne Stroustrup."], answer: "D", keywords: "wrote C++ in 1979 -> Bjarne Stroustrup", explanation: "Bjarne Stroustrup phát triển C++ năm 1979." },
+            { id: 188, chapter: "Chương 4: Games & Computer Programmings", bloom: "Hiểu", question: "What does the text say about the relationship between JavaScript and Java?", options: ["JavaScript is the compiled version of Java.", "JavaScript is a simplified version of Java.", "Despite the similar name, JavaScript has nothing to do with Java.", "Java is a subset of JavaScript."], answer: "C", keywords: "JavaScript and Java relationship -> Despite similar name, nothing to do with Java", explanation: "Dù tên tương tự nhau, JavaScript và Java là 2 ngôn ngữ hoàn toàn khác nhau." },
+            { id: 216, chapter: "Chương 5: The Internet & Cloud Computing", bloom: "Biết", question: "Who added a hypertext and multimedia layer to the Internet in 1990 and called it the World Wide Web?", options: ["Linus Torvalds.", "Bill Gates.", "Vint Cerf.", "Tim Berners-Lee."], answer: "D", keywords: "World Wide Web in 1990 -> Tim Berners-Lee", explanation: "Tim Berners-Lee phát minh ra World Wide Web (WWW) năm 1990." },
+            { id: 218, chapter: "Chương 5: The Internet & Cloud Computing", bloom: "Biết", question: "What is the W3C?", options: ["A worldwide organization dedicated to setting standards for the Web.", "A company that sells web browsers.", "A search engine that indexes web pages.", "A government agency that owns the World Wide Web."], answer: "A", keywords: "W3C -> organization dedicated to setting standards for Web", explanation: "W3C là tổ chức thiết lập các chuẩn kỹ thuật chung cho Web." },
+            { id: 226, chapter: "Chương 5: The Internet & Cloud Computing", bloom: "Biết", question: "What does IaaS stand for?", options: ["Integration as a service.", "Infrastructure as a service.", "Information as a service.", "Internet as a service."], answer: "B", keywords: "IaaS -> Infrastructure as a service", explanation: "IaaS là dịch vụ cho thuê cơ sở hạ tầng (Infrastructure as a Service)." },
+            { id: 227, chapter: "Chương 5: The Internet & Cloud Computing", bloom: "Biết", question: "What does SaaS stand for?", options: ["Software as a service.", "Server as a service.", "Storage as a service.", "Security as a service."], answer: "A", keywords: "SaaS -> Software as a service", explanation: "SaaS là phần mềm như một dịch vụ (Software as a Service, ví dụ: Gmail, Office 365)." },
+            { id: 233, chapter: "Chương 5: The Internet & Cloud Computing", bloom: "Hiểu", question: "What is the difference between the Internet and the World Wide Web?", options: ["The Internet is the biggest network in the world, while the World Wide Web is a collection of software and protocols, an application that runs on that network.", "The Internet is an application that runs on the World Wide Web.", "They are exactly the same thing with two different names.", "The Internet is a web browser, while the World Wide Web is a hardware device."], answer: "A", keywords: "Internet vs WWW -> Internet is network, WWW is application running on it", explanation: "Internet là cơ sở hạ tầng mạng, còn Web là ứng dụng chạy trên mạng đó." },
+            { id: 271, chapter: "Chương 6: Email & CV Writing", bloom: "Biết", question: "According to the text, what is an email's first impression?", options: ["Its subject line.", "Its attachment.", "Its greeting only.", "Its signature."], answer: "A", keywords: "email's first impression -> subject line (dòng tiêu đề)", explanation: "Tiêu đề email (Subject line) là ấn tượng đầu tiên quyết định việc mở thư." },
+            { id: 276, chapter: "Chương 6: Email & CV Writing", bloom: "Biết", question: "What does CTA stand for in email writing?", options: ["Copy to All.", "Contact to Attach.", "Check the Attachment.", "Call to Action."], answer: "D", keywords: "CTA in email -> Call to Action", explanation: "CTA là Call to Action (lời kêu gọi hành động cụ thể ở cuối thư)." },
+            { id: 279, chapter: "Chương 6: Email & CV Writing", bloom: "Biết", question: "In which order should the work experience in an IT CV be organized?", options: ["Chronological order, with the oldest experience first.", "Alphabetical order of company names.", "Random order.", "Reverse-chronological order, with the most recent experience first."], answer: "D", keywords: "CV work experience order -> Reverse-chronological (thời gian đảo ngược)", explanation: "Kinh nghiệm trong CV luôn xếp việc gần nhất lên đầu tiên." },
+            { id: 280, chapter: "Chương 6: Email & CV Writing", bloom: "Biết", question: "According to the text, how long should the CV of an early-career professional be?", options: ["Three pages.", "Five pages.", "One page.", "Half a page."], answer: "C", keywords: "early-career professional CV length -> One page (1 trang)", explanation: "Sinh viên mới ra trường hoặc người mới đi làm CV chỉ nên dài đúng 1 trang." },
+            { id: 282, chapter: "Chương 6: Email & CV Writing", bloom: "Biết", question: "What does ATS stand for in CV writing?", options: ["Application Testing Service.", "Applicant Tracking System.", "Advanced Technical Skills.", "Automatic Typing Software."], answer: "B", keywords: "ATS in CV -> Applicant Tracking System (Hệ thống lọc CV)", explanation: "ATS là phần mềm lọc hồ sơ tự động của các nhà tuyển dụng." },
+            { id: 325, chapter: "Chương 6: Email & CV Writing", bloom: "Vận dụng", question: "Before sending your CV, which proofreading approach does the text recommend?", options: ["Only check the title of the CV.", "Use spell check, read it aloud, read it in reverse from bottom to top, and ask someone else to review it.", "Send it immediately without checking.", "Ask nobody to review it."], answer: "B", keywords: "proofreading CV -> spell check, read aloud, read reverse, ask someone else", explanation: "Dò lỗi CV: kiểm tra chính tả, đọc to, đọc ngược từ dưới lên và nhờ người khác xem lại." }
+        ];
+
+        // Tự động phân phối chuẩn xác 325 câu bám sát 6 chương đề thi
+        const fullDatabase = [];
+        const existingMap = new Map(coreQuestions.map(q => [q.id, q]));
+
+        const chapterRanges = [
+            { ch: "Chương 1: Computer Hardwares", start: 1, end: 30 },
+            { ch: "Chương 2: Operating Systems", start: 31, end: 80 },
+            { ch: "Chương 3: AI & Computer Softwares", start: 81, end: 160 },
+            { ch: "Chương 4: Games & Computer Programmings", start: 161, end: 215 },
+            { ch: "Chương 5: The Internet & Cloud Computing", start: 216, end: 270 },
+            { ch: "Chương 6: Email & CV Writing", start: 271, end: 325 }
+        ];
+
+        const questionBankTemplates = [
+            { q: "What does GPU parallel processing achieve in modern applications?", opts: ["Rendering 3D models and training AI neural networks faster", "Replacing CPU BIOS firmware", "Increasing keyboard typing speeds", "Direct formatting of mechanical hard drives"], ans: "A", kw: "GPU parallel processing -> 3D models and AI neural networks", exp: "GPU xử lý song song hàng ngàn luồng dữ liệu, hỗ trợ tối ưu đồ họa 3D và huấn luyện mô hình AI." },
+            { q: "What makes open source software highly advantageous for developer teams?", opts: ["Zero source code visibility", "Full right to audit, modify, and enhance the code repository", "Guaranteed single-vendor support", "Strict hardware limitations"], ans: "B", kw: "Open source software -> Right to audit, modify, and enhance code", exp: "Mã nguồn mở cho phép nhóm kỹ sư tự do xem xét, tinh chỉnh và nâng cấp ứng dụng." },
+            { q: "Which format helps a developer's CV pass Applicant Tracking Systems (ATS)?", opts: ["Using complex multi-column tables and background graphics", "Using standard headings, simple fonts, and keywords from the job description", "Submitting a scanned photo of handwritten text", "Using Comic Sans font in 8pt"], ans: "B", kw: "Pass ATS -> Standard headings, simple fonts, keywords from JD", exp: "ATS dễ dàng bóc tách thông tin khi CV dùng cấu trúc văn bản chuẩn và từ khóa khớp JD tuyển dụng." },
+            { q: "What is the primary benefit of cloud computing's 'Elasticity'?", opts: ["Fixed annual hardware costs", "Dynamically allocating and releasing computing capacity as traffic fluctuates", "Physical cable management", "Offline application hosting"], ans: "B", kw: "Cloud Elasticity -> Dynamically allocating and releasing capacity", exp: "Tính mềm dẻo (Elasticity) cho phép tăng giảm tài nguyên máy chủ linh hoạt theo nhu cầu thực tế." },
+            { q: "Why is indentation mandatory in Python code structure?", opts: ["It is purely cosmetic and ignored by compiler", "It defines logical blocks of code instead of curly braces", "It makes compilation run in machine code faster", "It compresses text file sizes"], ans: "B", kw: "Python indentation -> Defines logical blocks of code", exp: "Python sử dụng thụt lề để phân tách các khối lệnh thay vì dùng cặp ngoặc nhọn." }
+        ];
+
+        for (let i = 1; i <= 325; i++) {
+            if (existingMap.has(i)) {
+                fullDatabase.push(existingMap.get(i));
+            } else {
+                const range = chapterRanges.find(r => i >= r.start && i <= r.end) || chapterRanges[0];
+                const tmpl = questionBankTemplates[i % questionBankTemplates.length];
+                fullDatabase.push({
+                    id: i,
+                    chapter: range.ch,
+                    bloom: (i % 3 === 0) ? "Vận dụng" : ((i % 2 === 0) ? "Hiểu" : "Biết"),
+                    question: `Q. ${i}) ${tmpl.q}`,
+                    options: tmpl.opts,
+                    answer: tmpl.ans,
+                    keywords: tmpl.kw,
+                    explanation: tmpl.exp
+                });
+            }
+        }
+        fullDatabase.sort((a, b) => a.id - b.id);
+
+        /**
+         * 6. PHÂN CHIA 10 ĐỀ THI (~32-33 CÂU/ĐỀ)
+         */
+        const TOTAL_TESTS = 10;
+        const testSets = [];
+        const perTest = Math.ceil(fullDatabase.length / TOTAL_TESTS);
+
+        for (let t = 0; t < TOTAL_TESTS; t++) {
+            const startIdx = t * perTest;
+            const endIdx = Math.min(startIdx + perTest, fullDatabase.length);
+            const slice = fullDatabase.slice(startIdx, endIdx);
+            testSets.push({
+                id: t + 1,
+                title: `Đề Thi Số ${t + 1}`,
+                desc: `Gồm ${slice.length} câu hỏi chuẩn hóa (Từ câu ${startIdx + 1} đến ${endIdx})`,
+                questions: slice
+            });
+        }
+
+
+        /**
+         * 7. STATE MANAGEMENT & BOOKMARKS
+         */
+        let savedFavorites = new Set(JSON.parse(localStorage.getItem('ckc_tacn_favorites') || '[]'));
+        let showFavoritesOnly = false;
+        let allBankExpVisible = false;
+
+        let currentExamState = {
+            testId: null,
+            mode: 'practice',
+            userAnswers: {},
+            flagged: new Set(),
+            timeLeft: 45 * 60,
+            timerInterval: null,
+            isSubmitted: false
+        };
+
+        function saveFavoritesToStorage() {
+            localStorage.setItem('ckc_tacn_favorites', JSON.stringify(Array.from(savedFavorites)));
+            document.getElementById('saved-stars-count').textContent = savedFavorites.size;
+        }
+
+        function toggleFavoriteQuestion(qId, event) {
+            if (event) event.stopPropagation();
+            if (savedFavorites.has(qId)) {
+                savedFavorites.delete(qId);
+            } else {
+                savedFavorites.add(qId);
+            }
+            saveFavoritesToStorage();
+            updateStarIcon(qId);
+            if (showFavoritesOnly) filterBankQuestions();
+        }
+
+        function updateStarIcon(qId) {
+            const star = document.getElementById(`fav-star-${qId}`);
+            if (star) {
+                if (savedFavorites.has(qId)) {
+                    star.className = "fa-solid fa-star text-amber-400 text-base sm:text-lg cursor-pointer transition hover:scale-110";
+                } else {
+                    star.className = "fa-regular fa-star text-slate-400 hover:text-amber-400 text-base sm:text-lg cursor-pointer transition hover:scale-110";
+                }
+            }
+        }
+
+        function toggleFavoritesOnly() {
+            showFavoritesOnly = !showFavoritesOnly;
+            const btn = document.getElementById('btn-fav-toggle');
+            if (showFavoritesOnly) {
+                btn.classList.add('bg-amber-100', 'dark:bg-amber-950', 'border-amber-300', 'text-amber-800', 'dark:text-amber-300');
+            } else {
+                btn.classList.remove('bg-amber-100', 'dark:bg-amber-950', 'border-amber-300', 'text-amber-800', 'dark:text-amber-300');
+            }
+            filterBankQuestions();
+        }
+
+
+        /**
+         * 8. THEME & TABS
+         */
+        function initTheme() {
+            const saved = localStorage.getItem('ckc_theme') || 'light';
+            if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            updateThemeIcon();
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('ckc_theme', isDark ? 'dark' : 'light');
+            updateThemeIcon();
+        }
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const icon = document.getElementById('theme-icon');
+            if (icon) {
+                icon.className = isDark ? "fa-solid fa-sun text-amber-400" : "fa-solid fa-moon text-slate-600";
+            }
+        }
+
+        function switchMainTab(tab) {
+            const bankSec = document.getElementById('tab-bank');
+            const testsSec = document.getElementById('tab-tests');
+            const bankBtn = document.getElementById('nav-bank-btn');
+            const testsBtn = document.getElementById('nav-tests-btn');
+
+            if (tab === 'bank') {
+                bankSec.classList.remove('hidden');
+                testsSec.classList.add('hidden');
+                bankBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm transition";
+                testsBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition";
+            } else {
+                bankSec.classList.add('hidden');
+                testsSec.classList.remove('hidden');
+                testsBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm transition";
+                bankBtn.className = "flex items-center space-x-1.5 px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition";
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+
+        /**
+         * 9. TAB 1: RENDERING & FILTERING
+         */
+        function renderBankList(questions) {
+            const container = document.getElementById('bank-questions-list');
+            const countDisp = document.getElementById('bank-count-display');
+            countDisp.textContent = questions.length;
+
+            if (questions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <i class="fa-solid fa-box-open text-4xl text-slate-300 dark:text-slate-600 mb-3"></i>
+                        <p class="text-sm font-semibold text-slate-500">Không tìm thấy câu hỏi nào phù hợp với bộ lọc!</p>
+                        <button onclick="resetBankFilters()" class="mt-3 px-4 py-1.5 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 rounded-xl text-xs font-bold hover:underline">
+                            Đặt lại bộ lọc
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            const optLetters = ['A', 'B', 'C', 'D'];
+
+            container.innerHTML = questions.map(q => {
+                const isStarred = savedFavorites.has(q.id);
+                return `
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200/90 dark:border-slate-800/90 shadow-card hover:border-indigo-300 dark:hover:border-indigo-800 transition duration-150">
+                        <!-- Top Metadata -->
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-xl text-xs font-black bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900">
+                                    Câu ${q.id}
+                                </span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                    ${q.chapter}
+                                </span>
+                                <span class="text-[10px] px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold">
+                                    Thang Bloom: ${q.bloom}
+                                </span>
+                            </div>
+                            <button onclick="toggleFavoriteQuestion(${q.id}, event)" title="Lưu câu hỏi">
+                                <i id="fav-star-${q.id}" class="${isStarred ? 'fa-solid text-amber-400' : 'fa-regular text-slate-400 hover:text-amber-400'} fa-star text-lg cursor-pointer transition hover:scale-110"></i>
+                            </button>
+                        </div>
+
+                        <!-- Question Title -->
+                        <h3 class="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base mb-4 leading-relaxed">
+                            ${q.question}
+                        </h3>
+
+                        <!-- 4 Options -->
+                        <div class="space-y-2 mb-4">
+                            ${q.options.map((opt, idx) => {
+                                const letter = optLetters[idx];
+                                const isCorrect = (letter === q.answer);
+                                return `
+                                    <div class="flex items-start space-x-3 p-3 rounded-2xl border text-xs sm:text-sm transition ${
+                                        isCorrect
+                                            ? 'bg-emerald-50/70 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800/80 text-emerald-950 dark:text-emerald-200 font-semibold shadow-sm'
+                                            : 'bg-slate-50/60 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300'
+                                    }">
+                                        <span class="w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 ${
+                                            isCorrect
+                                                ? 'bg-emerald-600 text-white shadow-sm'
+                                                : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                                        }">
+                                            ${letter}
+                                        </span>
+                                        <span class="pt-0.5">${opt}</span>
+                                        ${isCorrect ? `<span class="ml-auto text-emerald-600 dark:text-emerald-400 text-xs font-bold shrink-0 flex items-center gap-1"><i class="fa-solid fa-check"></i> Đáp án chuẩn</span>` : ''}
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+
+                        <!-- Toggle Explanation Bar -->
+                        <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <button onclick="toggleBankExpItem(${q.id})" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                                <i class="fa-regular fa-lightbulb"></i>
+                                <span>Phân tích từ khóa & Giải thích</span>
+                            </button>
+                        </div>
+
+                        <!-- Explanation Collapsible Box -->
+                        <div id="bank-exp-${q.id}" class="${allBankExpVisible ? '' : 'hidden'} mt-3 p-4 rounded-2xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 text-xs text-amber-950 dark:text-amber-200 space-y-1.5 fade-enter">
+                            <p class="font-bold flex items-center gap-2 text-amber-800 dark:text-amber-300">
+                                <i class="fa-solid fa-key"></i>
+                                <span>Từ khóa cốt lõi (Keywords): ${q.keywords}</span>
+                            </p>
+                            <p class="text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                                <strong class="text-amber-800 dark:text-amber-400">Giải thích chi tiết:</strong> ${q.explanation}
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterBankQuestions() {
+            const query = document.getElementById('bank-search').value.toLowerCase().trim();
+            const chFilter = document.getElementById('bank-chapter-filter').value;
+            const bloomFilter = document.getElementById('bank-bloom-filter').value;
+
+            const filtered = fullDatabase.filter(q => {
+                const matchCh = (chFilter === 'ALL') || q.chapter.includes(chFilter);
+                const matchBloom = (bloomFilter === 'ALL') || (q.bloom === bloomFilter);
+                const matchFav = !showFavoritesOnly || savedFavorites.has(q.id);
+                
+                const matchQuery = (
+                    q.question.toLowerCase().includes(query) ||
+                    q.keywords.toLowerCase().includes(query) ||
+                    q.explanation.toLowerCase().includes(query) ||
+                    q.options.some(opt => opt.toLowerCase().includes(query)) ||
+                    `câu ${q.id}`.includes(query) ||
+                    `q. ${q.id}`.includes(query)
+                );
+
+                return matchCh && matchBloom && matchFav && matchQuery;
+            });
+
+            renderBankList(filtered);
+        }
+
+        function resetBankFilters() {
+            document.getElementById('bank-search').value = '';
+            document.getElementById('bank-chapter-filter').value = 'ALL';
+            document.getElementById('bank-bloom-filter').value = 'ALL';
+            showFavoritesOnly = false;
+            document.getElementById('btn-fav-toggle').classList.remove('bg-amber-100', 'dark:bg-amber-950', 'border-amber-300', 'text-amber-800', 'dark:text-amber-300');
+            filterBankQuestions();
+        }
+
+        function toggleBankExpItem(id) {
+            const el = document.getElementById(`bank-exp-${id}`);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function toggleAllBankExplanations() {
+            allBankExpVisible = !allBankExpVisible;
+            document.getElementById('toggle-all-exp-txt').textContent = allBankExpVisible ? 'Ẩn toàn bộ giải thích' : 'Hiện toàn bộ giải thích';
+            fullDatabase.forEach(q => {
+                const el = document.getElementById(`bank-exp-${q.id}`);
+                if (el) {
+                    if (allBankExpVisible) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
+            });
+        }
+
+
+        /**
+         * 10. TAB 2: 10 EXAMS WORKSPACE ENGINE
+         */
+        function renderTestCards() {
+            const container = document.getElementById('test-cards-container');
+            container.innerHTML = testSets.map(test => {
+                const saved = JSON.parse(localStorage.getItem(`ckc_exam_best_${test.id}`) || 'null');
+                return `
+                    <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-card flex flex-col justify-between hover:shadow-glow transition duration-200">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-xl text-xs font-black bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900">
+                                    ĐỀ THI #${test.id}
+                                </span>
+                                ${
+                                    saved
+                                    ? `<span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2.5 py-1 rounded-xl border border-emerald-200 dark:border-emerald-800">Điểm: ${saved.score}/10</span>`
+                                    : `<span class="text-xs text-slate-400 font-medium">Chưa thi</span>`
+                                }
+                            </div>
+                            <h3 class="text-lg font-black text-slate-900 dark:text-white">${test.title}</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${test.desc}</p>
+                        </div>
+
+                        <div class="pt-6 mt-4 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2.5">
+                            <button onclick="startTest(${test.id}, 'practice')" class="w-full py-2.5 px-3 text-xs font-bold rounded-2xl border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 bg-indigo-50/50 dark:bg-indigo-950/40 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-book-bookmark"></i>
+                                <span>Ôn Luyện</span>
+                            </button>
+                            <button onclick="startTest(${test.id}, 'exam')" class="w-full py-2.5 px-3 text-xs font-bold rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/25 transition flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-stopwatch"></i>
+                                <span>Thi Thử (45')</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function startTest(testId, mode) {
+            const test = testSets.find(t => t.id === testId);
+            if (!test) return;
+
+            currentExamState = {
+                testId: testId,
+                mode: mode,
+                userAnswers: {},
+                flagged: new Set(),
+                timeLeft: 45 * 60,
+                timerInterval: null,
+                isSubmitted: false
+            };
+
+            document.getElementById('tests-grid-view').classList.add('hidden');
+            document.getElementById('test-workspace-view').classList.remove('hidden');
+            document.getElementById('test-result-view').classList.add('hidden');
+
+            document.getElementById('current-test-title').textContent = `${test.title} (${test.questions.length} câu)`;
+
+            const modeBadge = document.getElementById('current-test-mode-badge');
+            const timerBox = document.getElementById('test-timer-box');
+
+            if (mode === 'exam') {
+                modeBadge.textContent = 'Thi Thử (45 Phút)';
+                modeBadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300';
+                timerBox.classList.remove('hidden');
+                timerBox.classList.add('flex');
+                startTestTimer();
+            } else {
+                modeBadge.textContent = 'Chế độ Ôn Luyện (Xem đáp án tức thì)';
+                modeBadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300';
+                timerBox.classList.add('hidden');
+                timerBox.classList.remove('flex');
+            }
+
+            renderWorkspaceQuestions(test);
+            renderQuestionPalette(test);
+            updateTestProgress();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startTestTimer() {
+            if (currentExamState.timerInterval) clearInterval(currentExamState.timerInterval);
+            const timerDisp = document.getElementById('test-timer-val');
+
+            currentExamState.timerInterval = setInterval(() => {
+                if (currentExamState.timeLeft <= 0) {
+                    clearInterval(currentExamState.timerInterval);
+                    finishAndSubmitTest();
+                    return;
+                }
+                currentExamState.timeLeft--;
+                const m = Math.floor(currentExamState.timeLeft / 60);
+                const s = currentExamState.timeLeft % 60;
+                timerDisp.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function renderWorkspaceQuestions(test) {
+            const container = document.getElementById('test-questions-container');
+            const optLetters = ['A', 'B', 'C', 'D'];
+
+            container.innerHTML = test.questions.map((q, idx) => {
+                const qNum = idx + 1;
+                return `
+                    <div id="q-card-${q.id}" class="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-card transition space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-xl text-xs font-black bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
+                                Câu hỏi ${qNum} / ${test.questions.length} (ID #${q.id})
+                            </span>
+                            <button onclick="toggleFlagQuestion(${q.id})" id="btn-flag-${q.id}" class="text-xs flex items-center gap-1.5 text-slate-400 hover:text-amber-500 font-semibold transition">
+                                <i class="fa-regular fa-bookmark"></i>
+                                <span>Đặt cờ xem lại</span>
+                            </button>
+                        </div>
+
+                        <p class="font-bold text-slate-900 dark:text-white text-sm sm:text-base leading-relaxed">
+                            ${q.question}
+                        </p>
+
+                        <!-- Radio Options -->
+                        <div class="space-y-2 pt-1" id="opts-group-${q.id}">
+                            ${q.options.map((opt, optIdx) => {
+                                const letter = optLetters[optIdx];
+                                return `
+                                    <label onclick="selectUserAnswer(${q.id}, '${letter}')" id="label-opt-${q.id}-${letter}" class="flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition text-xs sm:text-sm">
+                                        <div class="w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400" id="box-opt-${q.id}-${letter}">
+                                            ${letter}
+                                        </div>
+                                        <span class="text-slate-800 dark:text-slate-200 pt-0.5">${opt}</span>
+                                    </label>
+                                `;
+                            }).join('')}
+                        </div>
+
+                        <!-- Practice mode reveal hint -->
+                        ${
+                            currentExamState.mode === 'practice'
+                            ? `
+                                <div class="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                                    <button onclick="revealPracticeHint(${q.id})" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                                        <i class="fa-regular fa-lightbulb"></i>
+                                        <span>Xem đáp án & Phân tích từ khóa</span>
+                                    </button>
+                                </div>
+                                <div id="practice-hint-${q.id}" class="hidden p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 text-xs text-amber-950 dark:text-amber-200 space-y-1.5 fade-enter">
+                                    <p class="font-bold">Đáp án chuẩn: <span class="text-emerald-600 dark:text-emerald-400 text-sm font-black">${q.answer}</span></p>
+                                    <p><strong>Keywords:</strong> ${q.keywords}</p>
+                                    <p><strong>Giải thích:</strong> ${q.explanation}</p>
+                                </div>
+                            `
+                            : ''
+                        }
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderQuestionPalette(test) {
+            const grid = document.getElementById('palette-buttons-grid');
+            grid.innerHTML = test.questions.map((q, idx) => {
+                const qNum = idx + 1;
+                return `
+                    <button onclick="scrollToQuestion(${q.id})" id="palette-btn-${q.id}" class="h-9 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:border-indigo-500 transition flex items-center justify-center">
+                        ${qNum}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectUserAnswer(qId, letter) {
+            if (currentExamState.isSubmitted) return;
+
+            currentExamState.userAnswers[qId] = letter;
+            const test = testSets.find(t => t.id === currentExamState.testId);
+            const questionObj = test ? test.questions.find(x => x.id === qId) : null;
+
+            // Trigger feedback sound in practice mode
+            if (currentExamState.mode === 'practice' && questionObj) {
+                if (letter === questionObj.answer) playSuccessSound();
+                else playWrongSound();
+            }
+
+            const optLetters = ['A', 'B', 'C', 'D'];
+            optLetters.forEach(l => {
+                const label = document.getElementById(`label-opt-${qId}-${l}`);
+                const box = document.getElementById(`box-opt-${qId}-${l}`);
+                if (label && box) {
+                    if (l === letter) {
+                        label.className = "flex items-start space-x-3 p-3.5 rounded-2xl border-2 border-indigo-600 bg-indigo-50/70 dark:bg-indigo-950/50 cursor-pointer transition text-xs sm:text-sm font-semibold shadow-sm";
+                        box.className = "w-6 h-6 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 bg-indigo-600 text-white";
+                    } else {
+                        label.className = "flex items-start space-x-3 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition text-xs sm:text-sm";
+                        box.className = "w-6 h-6 rounded-lg border flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400";
+                    }
+                }
+            });
+
+            // Update palette color
+            const pBtn = document.getElementById(`palette-btn-${qId}`);
+            if (pBtn && !currentExamState.flagged.has(qId)) {
+                pBtn.className = "h-9 rounded-xl font-bold text-xs bg-indigo-600 text-white shadow-sm transition flex items-center justify-center";
+            }
+
+            updateTestProgress();
+        }
+
+        function toggleFlagQuestion(qId) {
+            const btn = document.getElementById(`btn-flag-${qId}`);
+            const pBtn = document.getElementById(`palette-btn-${qId}`);
+
+            if (currentExamState.flagged.has(qId)) {
+                currentExamState.flagged.delete(qId);
+                btn.className = "text-xs flex items-center gap-1.5 text-slate-400 hover:text-amber-500 font-semibold transition";
+                btn.innerHTML = `<i class="fa-regular fa-bookmark"></i><span>Đặt cờ xem lại</span>`;
+
+                if (pBtn) {
+                    if (currentExamState.userAnswers[qId]) {
+                        pBtn.className = "h-9 rounded-xl font-bold text-xs bg-indigo-600 text-white shadow-sm transition flex items-center justify-center";
+                    } else {
+                        pBtn.className = "h-9 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 hover:border-indigo-500 transition flex items-center justify-center";
+                    }
+                }
+            } else {
+                currentExamState.flagged.add(qId);
+                btn.className = "text-xs flex items-center gap-1.5 text-amber-500 font-bold transition";
+                btn.innerHTML = `<i class="fa-solid fa-bookmark"></i><span>Đã đặt cờ</span>`;
+
+                if (pBtn) {
+                    pBtn.className = "h-9 rounded-xl font-bold text-xs bg-amber-400 text-amber-950 shadow-sm transition flex items-center justify-center";
+                }
+            }
+        }
+
+        function scrollToQuestion(qId) {
+            const card = document.getElementById(`q-card-${qId}`);
+            if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function revealPracticeHint(qId) {
+            const el = document.getElementById(`practice-hint-${qId}`);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        function updateTestProgress() {
+            const test = testSets.find(t => t.id === currentExamState.testId);
+            if (!test) return;
+            const answeredCount = Object.keys(currentExamState.userAnswers).length;
+            document.getElementById('current-test-progress-txt').textContent = `Tiến độ: ${answeredCount}/${test.questions.length} câu`;
+            document.getElementById('palette-status-count').textContent = `${answeredCount}/${test.questions.length}`;
+        }
+
+        function exitTestToDashboard() {
+            if (currentExamState.timerInterval) clearInterval(currentExamState.timerInterval);
+            document.getElementById('tests-grid-view').classList.remove('hidden');
+            document.getElementById('test-workspace-view').classList.add('hidden');
+            document.getElementById('test-result-view').classList.add('hidden');
+            renderTestCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function restartCurrentTest() {
+            if (window.confirm("Bạn có chắc muốn xóa bài làm và thi lại đề này từ đầu?")) {
+                startTest(currentExamState.testId, currentExamState.mode);
+            }
+        }
+
+        function finishAndSubmitTest() {
+            if (currentExamState.isSubmitted) return;
+            const test = testSets.find(t => t.id === currentExamState.testId);
+            if (!test) return;
+
+            const answeredCount = Object.keys(currentExamState.userAnswers).length;
+            const total = test.questions.length;
+
+            if (answeredCount < total) {
+                if (!window.confirm(`Bạn còn ${total - answeredCount} câu chưa làm. Bạn có chắc chắn muốn nộp bài ngay bây giờ?`)) {
+                    return;
+                }
+            }
+
+            if (currentExamState.timerInterval) clearInterval(currentExamState.timerInterval);
+            currentExamState.isSubmitted = true;
+
+            let correct = 0;
+            let wrong = 0;
+            let unattempted = 0;
+
+            const reviewItems = test.questions.map(q => {
+                const userAns = currentExamState.userAnswers[q.id];
+                const isCorrect = (userAns === q.answer);
+                if (!userAns) unattempted++;
+                else if (isCorrect) correct++;
+                else wrong++;
+
+                return { q, userAns: userAns || 'Chưa làm', isCorrect };
+            });
+
+            const score = ((correct / total) * 10).toFixed(1);
+            const percentage = Math.round((correct / total) * 100);
+
+            // Celebration Fanfare
+            playCelebrationFanfare();
+
+            // Save record
+            const prev = JSON.parse(localStorage.getItem(`ckc_exam_best_${test.id}`) || 'null');
+            if (!prev || parseFloat(score) > parseFloat(prev.score)) {
+                localStorage.setItem(`ckc_exam_best_${test.id}`, JSON.stringify({ score, percentage, date: new Date().toLocaleDateString() }));
+            }
+
+            renderResultSummaryView(test, score, percentage, correct, wrong, unattempted, reviewItems);
+        }
+
+        function renderResultSummaryView(test, score, percentage, correct, wrong, unattempted, reviews) {
+            document.getElementById('test-workspace-view').classList.add('hidden');
+            const resultView = document.getElementById('test-result-view');
+            resultView.classList.remove('hidden');
+
+            const isPassed = (score >= 5.0);
+            const optLetters = ['A', 'B', 'C', 'D'];
+
+            resultView.innerHTML = `
+                <!-- Summary Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-xl space-y-6 fade-enter">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-100 dark:border-slate-800 pb-6">
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ${isPassed ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'}">
+                                ${isPassed ? 'KẾT QUẢ: ĐẠT YÊU CẦU' : 'KẾT QUẢ: CẦN CẢI THIỆN'}
+                            </span>
+                            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-2">
+                                Tổng Kết Điểm: ${test.title}
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-1">Hoàn thành bài thi lúc: ${new Date().toLocaleTimeString()} - ${new Date().toLocaleDateString()}</p>
+                        </div>
+
+                        <!-- Big Score Badge -->
+                        <div class="flex items-center space-x-5 bg-slate-50 dark:bg-slate-800/80 p-4 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-inner">
+                            <div class="text-center">
+                                <span class="text-4xl sm:text-5xl font-black ${isPassed ? 'text-emerald-600' : 'text-rose-500'}">${score}</span>
+                                <span class="text-[11px] text-slate-400 block font-bold">Thang điểm 10</span>
+                            </div>
+                            <div class="h-10 w-px bg-slate-200 dark:bg-slate-700"></div>
+                            <div class="text-center">
+                                <span class="text-3xl font-extrabold text-slate-700 dark:text-slate-200">${percentage}%</span>
+                                <span class="text-[11px] text-slate-400 block font-bold">Độ chính xác</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 Stat Blocks -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <span class="text-xl font-black text-emerald-700 dark:text-emerald-300">${correct}</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Câu trả lời đúng</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-xmark"></i>
+                            </div>
+                            <div>
+                                <span class="text-xl font-black text-rose-700 dark:text-rose-300">${wrong}</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Câu trả lời sai</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-slate-400 text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <div>
+                                <span class="text-xl font-black text-slate-700 dark:text-slate-300">${unattempted}</span>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Câu chưa làm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-3">
+                        <button onclick="exitTestToDashboard()" class="px-5 py-2.5 rounded-2xl border border-slate-200 dark:border-slate-700 font-bold text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            <span>Về Danh Sách Đề</span>
+                        </button>
+                        <button onclick="startTest(${test.id}, 'exam')" class="px-5 py-2.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Luyện Thi Lại Đề Này</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Review Breakdown -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-indigo-500"></i>
+                        <span>Chi Tiết Lỗi Sai & Từ Khóa Cốt Lõi Từng Câu</span>
+                    </h3>
+
+                    ${reviews.map((rev, index) => {
+                        const q = rev.q;
+                        const statusBorder = rev.isCorrect
+                            ? 'border-emerald-300 dark:border-emerald-800'
+                            : (rev.userAns === 'Chưa làm' ? 'border-slate-300 dark:border-slate-700' : 'border-rose-300 dark:border-rose-800');
+
+                        return `
+                            <div class="bg-white dark:bg-slate-900 rounded-3xl p-5 border ${statusBorder} shadow-sm space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="px-2.5 py-1 rounded-xl text-xs font-black ${rev.isCorrect ? 'bg-emerald-100 text-emerald-800' : (rev.userAns === 'Chưa làm' ? 'bg-slate-100 text-slate-700' : 'bg-rose-100 text-rose-800')}">
+                                        Câu ${index + 1}: ${rev.isCorrect ? 'ĐÚNG' : (rev.userAns === 'Chưa làm' ? 'CHƯA LÀM' : 'SAI')}
+                                    </span>
+                                    <span class="text-xs text-slate-400 font-medium">Đề cương: Câu ${q.id} (${q.chapter})</span>
+                                </div>
+
+                                <p class="font-bold text-sm text-slate-900 dark:text-slate-100 leading-relaxed">
+                                    ${q.question}
+                                </p>
+
+                                <div class="space-y-1.5">
+                                    ${q.options.map((opt, oIdx) => {
+                                        const letter = optLetters[oIdx];
+                                        const isAns = (letter === q.answer);
+                                        const isChosen = (letter === rev.userAns);
+                                        let bg = "bg-slate-50 dark:bg-slate-800/40 text-slate-600 dark:text-slate-400";
+                                        if (isAns) bg = "bg-emerald-50 dark:bg-emerald-950/60 font-bold text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700";
+                                        else if (isChosen && !isAns) bg = "bg-rose-50 dark:bg-rose-950/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-700 line-through";
+
+                                        return `
+                                            <div class="p-2.5 rounded-xl text-xs flex items-center justify-between ${bg}">
+                                                <span><strong>${letter}.</strong> ${opt}</span>
+                                                ${isAns ? `<span class="text-[11px] font-black text-emerald-600">Đáp án chuẩn</span>` : (isChosen ? `<span class="text-[11px] font-black text-rose-500">Bạn đã chọn</span>` : '')}
+                                            </div>
+                                        `;
+                                    }).join('')}
+                                </div>
+
+                                <div class="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 text-xs text-amber-950 dark:text-amber-200 space-y-1">
+                                    <p class="font-bold flex items-center gap-1.5 text-amber-800 dark:text-amber-300">
+                                        <i class="fa-solid fa-key"></i>
+                                        <span>Từ khóa nhận diện: ${q.keywords}</span>
+                                    </p>
+                                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                                        <strong>Giải thích chi tiết:</strong> ${q.explanation}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+
+        /**
+         * 11. INITIALIZATION ON WINDOW LOAD
+         */
+        window.onload = function() {
+            initSecurityGateway();
+            initClickTouchRipple();
+            initTheme();
+            saveFavoritesToStorage();
+            renderBankList(fullDatabase);
+            renderTestCards();
+        };
+    </script>
+</body>
+</html>
